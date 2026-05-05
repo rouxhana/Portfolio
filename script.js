@@ -42,11 +42,31 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Subtle parallax for the large background text
+// Refined parallax for the large background text
 window.addEventListener('scroll', () => {
     const mainTitle = document.querySelector('.hero-main-title');
     if (mainTitle) {
         const scrolled = window.scrollY;
-        mainTitle.style.transform = `translateX(-50%) translateY(${scrolled * 0.3}px)`;
+        // Keep the -50% -50% base and add vertical movement
+        mainTitle.style.transform = `translate(-50%, calc(-50% + ${scrolled * 0.3}px))`;
     }
 });
+
+// Interactive mouse-follow effect for the hero section
+const hero = document.getElementById('hero');
+const mainTitle = document.querySelector('.hero-main-title');
+
+if (hero && mainTitle) {
+    hero.addEventListener('mousemove', (e) => {
+        const { clientX, clientY } = e;
+        const { width, height } = hero.getBoundingClientRect();
+        
+        // Calculate move offsets (-1 to 1)
+        const moveX = (clientX / width - 0.5) * 30; // 30px max move
+        const moveY = (clientY / height - 0.5) * 30;
+        
+        const scrolled = window.scrollY;
+        mainTitle.style.transform = `translate(calc(-50% + ${moveX}px), calc(-50% + ${scrolled * 0.3 + moveY}px))`;
+    });
+}
+
