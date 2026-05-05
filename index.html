@@ -9,7 +9,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
     <header id="navbar">
@@ -22,167 +22,126 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="menu-toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
         </nav>
     </header>
 
     <main>
         <!-- Hero Section -->
         <section id="hero" class="hero">
+            <div class="hero-main-title">PORTFOLIO</div>
             <div class="hero-content container">
-                <h1 class="reveal">Rouxhana Firthous</h1>
-                <h2 class="reveal">BTech IT Student | Aspiring Software Developer</h2>
-                <p class="reveal">"Learning, building, and improving every day to become a reliable software developer"</p>
-                <div class="hero-btns reveal">
-                    <a href="#projects" class="btn primary">View Projects</a>
+                <div class="hero-side-text">BTech IT Student</div>
+                <div class="hero-center-box">
+                    <h1 class="reveal">Rouxhana<br>Firthous</h1>
+                    <h2 class="reveal">Aspiring Software Developer</h2>
+                    <a href="#projects" class="btn primary reveal">View Work</a>
                 </div>
-            </div>
-            <div class="hero-bg">
-                <div class="glow-orb"></div>
+                <div class="hero-side-text">Creative Coder</div>
             </div>
         </section>
 
-        <!-- About Section -->
-        <section id="about" class="about section">
-            <div class="container">
-                <h2 class="section-title reveal">About Me</h2>
-                <div class="about-grid reveal">
-                    <div class="about-text">
-                        <p>I chose Information Technology because I enjoy creating and building things that people can interact with, especially websites and user interfaces. The ability to turn ideas into functional digital products is what drives my interest in this field.</p>
-                        <p>Currently, I am focused on frontend development and have a growing interest in cloud technologies. I am building my fundamentals in programming while exploring how applications are developed and deployed.</p>
-                        <p>To improve my skills, I consistently practice coding, learn version control using Git, and have completed a basic course in AWS through my college. I am also working towards building projects that reflect my understanding and progress.</p>
-                        <p>My short-term goal is to secure an internship where I can apply my knowledge in a real-world environment, gain practical experience, and continue developing as a software developer.</p>
+        <div class="container magazine-grid">
+            <!-- About & Experience -->
+            <section id="about" class="section about-grid">
+                <div class="about-text reveal">
+                    <h2 class="section-title">Who Am I?</h2>
+                    <p>I chose Information Technology because I enjoy creating and building things that people can interact with, especially websites and user interfaces. The ability to turn ideas into functional digital products is what drives my interest in this field.</p>
+                    <p>Currently, I am focused on frontend development and have a growing interest in cloud technologies. I am building my fundamentals in programming while exploring how applications are developed and deployed.</p>
+                </div>
+                <div class="experience-list reveal">
+                    <div class="experience-item">
+                        <h3>AWS Basics Course</h3>
+                        <p>College Level course covering cloud fundamentals and core AWS services.</p>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Typewriting Course</h3>
+                        <p>Successfully completed a professional course to improve speed and accuracy.</p>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Skills Section -->
-        <section id="skills" class="skills section bg-alt">
-            <div class="container">
-                <h2 class="section-title reveal">Skills</h2>
-                <div class="skills-grid">
-                    <div class="skill-category reveal">
-                        <h3>Programming Languages</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Java (Basic)</span>
-                        </div>
-                    </div>
-                    <div class="skill-category reveal">
-                        <h3>Web Development</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">HTML</span>
-                        </div>
-                    </div>
-                    <div class="skill-category reveal">
-                        <h3>Tools & Technologies</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Git (Beginner)</span>
-                            <span class="skill-tag">AWS (Basic)</span>
-                        </div>
-                    </div>
-                    <div class="skill-category reveal">
-                        <h3>Additional Skills</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Typewriting</span>
-                        </div>
+            <!-- Skills Section -->
+            <section id="skills" class="section skills-grid">
+                <div class="skill-category reveal">
+                    <h2 class="section-title">Skills</h2>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">AWS</span>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="projects section">
-            <div class="container">
-                <h2 class="section-title reveal">Projects</h2>
-                <div class="projects-grid">
-                    <div class="project-card reveal">
+            <!-- Projects Section -->
+            <section id="projects" class="section projects-grid">
+                <h2 class="section-title" style="grid-column: span 12;">Featured Projects</h2>
+                
+                <div class="project-card reveal">
+                    <div class="project-info">
                         <div class="project-status">In Progress</div>
-                        <h3>Personal Portfolio Website</h3>
+                        <h3>Personal Portfolio</h3>
                         <p>A responsive personal portfolio website to showcase my skills and learning journey.</p>
                         <div class="project-tech">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
+                            <span class="skill-tag">HTML</span>
+                            <span class="skill-tag">CSS</span>
+                            <span class="skill-tag">JS</span>
                         </div>
                     </div>
-                    <div class="project-card reveal">
+                </div>
+
+                <div class="project-card reveal">
+                    <div class="project-info">
                         <div class="project-status">Planned</div>
-                        <h3>Basic Web Application</h3>
+                        <h3>Web Application</h3>
                         <p>A simple interactive web application to practice frontend concepts.</p>
                         <div class="project-tech">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
+                            <span class="skill-tag">HTML</span>
+                            <span class="skill-tag">CSS</span>
+                            <span class="skill-tag">JS</span>
                         </div>
                     </div>
-                    <div class="project-card reveal">
+                </div>
+
+                <div class="project-card reveal">
+                    <div class="project-info">
                         <div class="project-status">Learning Phase</div>
-                        <h3>AWS Learning Project</h3>
-                        <p>Exploring cloud fundamentals using AWS services.</p>
+                        <h3>AWS Cloud Project</h3>
+                        <p>Exploring cloud fundamentals using AWS services and deployment strategies.</p>
                         <div class="project-tech">
-                            <span>AWS</span>
+                            <span class="skill-tag">AWS</span>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Experience Section -->
-        <section id="experience" class="experience section bg-alt">
-            <div class="container">
-                <h2 class="section-title reveal">Experience / Learning</h2>
-                <div class="timeline">
-                    <div class="timeline-item reveal">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h3>Typewriting Course Completed</h3>
-                            <p>Successfully completed a professional typewriting course to improve speed and accuracy.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item reveal">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h3>AWS Basics Course</h3>
-                            <p>College Level course covering cloud fundamentals and core AWS services.</p>
-                        </div>
-                    </div>
+            <!-- Contact Section -->
+            <section id="contact" class="section contact-content reveal">
+                <h2 class="section-title">Cooperation</h2>
+                <p>I'm currently looking for internship opportunities! Feel free to reach out via email or connect with me on professional platforms.</p>
+                <div class="contact-links">
+                    <a href="mailto:rouxhana9894@gmail.com" class="contact-item">
+                        <h3>Email</h3>
+                        <span>Connect via Mail</span>
+                    </a>
+                    <a href="https://github.com/rouxhana" target="_blank" class="contact-item">
+                        <h3>GitHub</h3>
+                        <span>View Source</span>
+                    </a>
+                    <a href="https://linkedin.com/in/your-profile" target="_blank" class="contact-item">
+                        <h3>LinkedIn</h3>
+                        <span>Professional Profile</span>
+                    </a>
                 </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact section">
-            <div class="container">
-                <h2 class="section-title reveal">Get In Touch</h2>
-                <div class="contact-content reveal">
-                    <p>I'm currently looking for internship opportunities! Feel free to reach out via email or connect with me on professional platforms.</p>
-                    <div class="contact-links">
-                        <a href="mailto:rouxhana9894@gmail.com" class="contact-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                            <span>rouxhana9894@gmail.com</span>
-                        </a>
-                        <a href="https://github.com/rouxhana" target="_blank" class="contact-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-                            <span>github.com/rouxhana</span>
-                        </a>
-                        <a href="https://linkedin.com/in/your-profile" target="_blank" class="contact-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-                            <span>linkedin.com/in/your-profile</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Rouxhana Firthous. Built with ❤️ for the future.</p>
+            <p>&copy; 2024 Rouxhana Firthous. Magazine Theme.</p>
         </div>
     </footer>
 

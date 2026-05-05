@@ -8,25 +8,6 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Mobile menu toggle
-const mobileMenu = document.getElementById('mobile-menu');
-const navLinks = document.querySelector('.nav-links');
-
-if (mobileMenu) {
-    mobileMenu.addEventListener('click', () => {
-        // Simple toggle for mobile - can be expanded with more CSS
-        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-        navLinks.style.flexDirection = 'column';
-        navLinks.style.position = 'absolute';
-        navLinks.style.top = '100%';
-        navLinks.style.left = '0';
-        navLinks.style.width = '100%';
-        navLinks.style.background = 'rgba(10, 10, 10, 0.95)';
-        navLinks.style.padding = '2rem';
-        navLinks.style.textAlign = 'center';
-    });
-}
-
 // Reveal on scroll animation
 const revealElements = document.querySelectorAll('.reveal');
 
@@ -39,7 +20,7 @@ const revealObserver = new IntersectionObserver((entries) => {
         }
     });
 }, {
-    threshold: 0.1,
+    threshold: 0.15,
     rootMargin: '0px 0px -50px 0px'
 });
 
@@ -54,25 +35,18 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
             window.scrollTo({
-                top: target.offsetTop - 80, // Offset for sticky header
+                top: target.offsetTop - 100, // Offset for sticky header
                 behavior: 'smooth'
             });
-            // Close mobile menu if open
-            if (window.innerWidth <= 768) {
-                navLinks.style.display = 'none';
-            }
         }
     });
 });
 
-// Add a slight hover effect to the glow orb based on mouse position
-const hero = document.getElementById('hero');
-const orb = document.querySelector('.glow-orb');
-
-if (hero && orb) {
-    hero.addEventListener('mousemove', (e) => {
-        const x = (e.clientX / window.innerWidth) * 50;
-        const y = (e.clientY / window.innerHeight) * 50;
-        orb.style.transform = `translate(${x}px, ${y}px)`;
-    });
-}
+// Subtle parallax for the large background text
+window.addEventListener('scroll', () => {
+    const mainTitle = document.querySelector('.hero-main-title');
+    if (mainTitle) {
+        const scrolled = window.scrollY;
+        mainTitle.style.transform = `translateX(-50%) translateY(${scrolled * 0.3}px)`;
+    }
+});
