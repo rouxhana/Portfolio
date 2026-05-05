@@ -49,14 +49,16 @@ h1, h2, h3, .magazine-title {
 
 .section-title {
     font-size: 3.5rem;
-    margin-bottom: 1rem;
+    margin: 0 auto 1rem auto;
     position: relative;
     color: var(--text-color);
     border-bottom: 1px solid var(--primary);
-    display: inline-block;
+    display: block;
+    width: fit-content;
     font-weight: 400;
     font-style: italic;
     text-transform: capitalize;
+    text-align: center;
 }
 
 .section-subtitle {
@@ -67,6 +69,7 @@ h1, h2, h3, .magazine-title {
     letter-spacing: 5px;
     margin-bottom: 3rem;
     font-weight: 600;
+    text-align: center;
 }
 
 /* Header & Nav */
@@ -75,10 +78,10 @@ header {
     top: 0;
     width: 100%;
     z-index: 1000;
-    padding: 2rem 0;
-    background: rgba(5, 0, 0, 0.8); /* Added default background to prevent overlap */
-    backdrop-filter: blur(10px);
+    padding: 1.5rem 0;
+    background: var(--bg-alt); /* Solid background to stop overlap */
     transition: var(--transition);
+    border-bottom: 1px solid var(--glass-border);
 }
 
 header.scrolled {
@@ -157,6 +160,7 @@ nav {
     position: relative;
     overflow: hidden;
     text-align: center;
+    padding-top: 80px; /* Accounts for navbar */
 }
 
 .hero-main-title {
@@ -202,7 +206,7 @@ nav {
 .hero-side-text.right { transform: rotate(0deg); }
 
 .hero-center-box {
-    padding: 6rem 3rem;
+    padding: 3rem 2rem; /* Reduced padding to stop vertical cutoff */
     background: rgba(5, 0, 0, 0.4);
     backdrop-filter: blur(15px);
     border: 1px solid var(--glass-border);
@@ -400,6 +404,10 @@ nav {
 }
 
 /* Skills Section */
+#skills {
+    grid-column: span 12;
+}
+
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
