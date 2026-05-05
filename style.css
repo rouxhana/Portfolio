@@ -327,9 +327,45 @@ nav {
 }
 
 .about-text p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-bottom: 2rem;
     color: var(--text-muted);
+    text-align: justify;
+}
+
+.drop-cap::first-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    float: left;
+    margin-right: 1rem;
+    line-height: 1;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.pull-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-style: italic;
+    color: var(--text-color);
+    margin: 3rem 0;
+    padding: 2rem;
+    border-top: 1px solid var(--primary);
+    border-bottom: 1px solid var(--primary);
+    text-align: center;
+    position: relative;
+}
+
+.pull-quote::before {
+    content: '“';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-color);
+    padding: 0 1rem;
+    font-size: 4rem;
+    color: var(--primary);
 }
 
 .experience-list {
