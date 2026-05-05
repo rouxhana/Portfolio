@@ -335,9 +335,13 @@ nav {
     gap: 2rem;
 }
 
+/* Layout Grid Sections */
+#about, #skills, #projects, #contact {
+    grid-column: span 12;
+}
+
 /* About Section */
 .about-grid {
-    grid-column: span 12;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
@@ -385,7 +389,7 @@ nav {
     top: -20px;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--bg-color);
+    background: transparent; /* Removed black box that was hiding text */
     padding: 0 1rem;
     font-size: 4rem;
     color: var(--primary);
@@ -404,10 +408,6 @@ nav {
 }
 
 /* Skills Section */
-#skills {
-    grid-column: span 12;
-}
-
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
