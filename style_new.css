@@ -162,7 +162,7 @@ nav {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: clamp(8rem, 25vw, 22rem);
+    font-size: clamp(6rem, 20vw, 22rem);
     line-height: 0.8;
     color: rgba(149, 1, 1, 0.05);
     z-index: 1;
@@ -189,7 +189,7 @@ nav {
 .hero-side-text {
     font-size: 1rem;
     font-weight: 700;
-    color: var(--secondary);
+    color: var(--text-muted);
     text-transform: uppercase;
     writing-mode: vertical-rl;
     letter-spacing: 10px;
@@ -201,7 +201,7 @@ nav {
 
 .hero-center-box {
     padding: 6rem 3rem;
-    background: rgba(13, 0, 0, 0.4);
+    background: rgba(5, 0, 0, 0.4);
     backdrop-filter: blur(15px);
     border: 1px solid var(--glass-border);
     position: relative;
@@ -209,24 +209,19 @@ nav {
 
 .hero-greeting {
     font-size: 0.9rem;
-    color: var(--secondary);
+    color: var(--primary);
     letter-spacing: 4px;
     margin-bottom: 1rem;
     text-transform: uppercase;
 }
 
 .hero h1 {
-    font-size: clamp(3.5rem, 12vw, 6.5rem);
+    font-size: clamp(3rem, 10vw, 6rem);
     margin-bottom: 1rem;
     color: var(--text-color);
-    line-height: 0.9;
+    line-height: 1;
     font-weight: 700;
-    animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+    /* Removed the conflicting float to ensure visibility */
 }
 
 .hero h2 {
@@ -322,7 +317,7 @@ nav {
 }
 
 .btn.primary:hover {
-    background: var(--secondary);
+    background: var(--text-color);
     color: #000;
     transform: translateY(-5px);
 }
@@ -418,22 +413,6 @@ nav {
     overflow: hidden;
 }
 
-.skill-card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(149, 1, 1, 0.15) 0%, transparent 70%);
-    opacity: 0;
-    transition: var(--transition);
-}
-
-.skill-card:hover::before {
-    opacity: 1;
-}
-
 .skill-card:hover {
     border-color: var(--primary);
     transform: translateY(-10px);
@@ -443,10 +422,6 @@ nav {
     font-size: 3.5rem;
     margin-bottom: 1.5rem;
     transition: var(--transition);
-}
-
-.skill-card:hover i {
-    transform: scale(1.1);
 }
 
 .skill-card h3 {
@@ -497,22 +472,6 @@ nav {
     height: 100%;
     object-fit: cover;
     transition: var(--transition);
-    filter: grayscale(0.5) brightness(0.8);
-}
-
-.project-card:hover .project-image img {
-    transform: scale(1.1);
-    filter: grayscale(0) brightness(1);
-}
-
-.project-image::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 50%;
-    background: linear-gradient(to top, var(--bg-alt), transparent);
 }
 
 .project-info {
@@ -523,7 +482,7 @@ nav {
 .project-status {
     font-size: 0.7rem;
     letter-spacing: 2px;
-    color: var(--secondary);
+    color: var(--primary);
     margin-bottom: 1rem;
     text-transform: uppercase;
 }
@@ -531,14 +490,6 @@ nav {
 .project-card h3 {
     font-size: 2rem;
     margin-bottom: 1.5rem;
-    line-height: 1.2;
-}
-
-.project-tech {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1.5rem;
 }
 
 /* Contact Section */
@@ -569,14 +520,7 @@ nav {
     border-color: var(--primary);
 }
 
-/* Reveal Animations */
-.reveal {
-    opacity: 1;
-    transform: translateY(0);
-    transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-/* Immediate animations for Hero */
+/* Animations */
 .animate-in {
     opacity: 0;
     transform: translateY(30px);
@@ -606,25 +550,6 @@ footer {
     justify-content: space-between;
     align-items: center;
     color: var(--text-muted);
-    font-size: 0.9rem;
-}
-
-.footer-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    font-weight: 900;
-    color: var(--text-color);
-}
-
-.footer-logo span {
-    color: var(--primary);
-}
-
-.footer-tag {
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 0.7rem;
-    color: var(--primary);
 }
 
 /* Responsive */
@@ -635,22 +560,19 @@ footer {
     
     .hero-content {
         grid-template-columns: 1fr;
+        gap: 2rem;
     }
     
     .hero-side-text {
-        display: none;
+        display: none; /* Crucial for mobile view */
     }
 
     .hero-center-box {
-        padding: 4rem 1.5rem;
+        padding: 4rem 1rem;
     }
 
     .hero h1 {
-        font-size: 3.5rem;
-    }
-
-    .hero-main-title {
-        font-size: 12rem;
+        font-size: 3rem;
     }
 
     .skills-grid {
@@ -659,10 +581,6 @@ footer {
     
     .projects-grid {
         grid-template-columns: 1fr;
-    }
-    
-    .section-title {
-        font-size: 2.5rem;
     }
 }
 
@@ -676,7 +594,7 @@ footer {
         top: 0;
         right: -100%;
         height: 100vh;
-        width: 70%;
+        width: 80%;
         background: var(--bg-alt);
         flex-direction: column;
         justify-content: center;
@@ -684,31 +602,10 @@ footer {
         gap: 3rem;
         transition: var(--transition);
         z-index: 1000;
-        box-shadow: -10px 0 30px rgba(0,0,0,0.5);
     }
 
     .nav-links.active {
         right: 0;
-    }
-
-    .nav-links a {
-        font-size: 1.2rem;
-    }
-
-    .about-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-links {
-        grid-template-columns: 1fr;
-    }
-
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero h1 {
-        font-size: 3rem;
     }
 
     .hero-btns {
@@ -716,13 +613,7 @@ footer {
         gap: 1rem;
     }
 
-    .hero-main-title {
-        font-size: 8rem;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        gap: 2rem;
-        text-align: center;
+    .skills-grid {
+        grid-template-columns: 1fr;
     }
 }
