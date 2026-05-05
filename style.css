@@ -49,7 +49,7 @@ h1, h2, h3, .magazine-title {
 
 .section-title {
     font-size: 3.5rem;
-    margin-bottom: 4rem;
+    margin-bottom: 1rem;
     position: relative;
     color: var(--text-color);
     border-bottom: 1px solid var(--primary);
@@ -57,6 +57,16 @@ h1, h2, h3, .magazine-title {
     font-weight: 400;
     font-style: italic;
     text-transform: capitalize;
+}
+
+.section-subtitle {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 3rem;
+    font-weight: 600;
 }
 
 /* Header & Nav */
@@ -415,7 +425,7 @@ nav {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(196, 30, 58, 0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(149, 1, 1, 0.15) 0%, transparent 70%);
     opacity: 0;
     transition: var(--transition);
 }
@@ -561,14 +571,60 @@ nav {
 
 /* Reveal Animations */
 .reveal {
-    opacity: 0;
-    transform: translateY(50px);
+    opacity: 1;
+    transform: translateY(0);
     transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
+/* Immediate animations for Hero */
+.animate-in {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: simpleFadeIn 1s ease-out forwards;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+
+@keyframes simpleFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Footer */
+footer {
+    padding: 6rem 0;
+    border-top: 1px solid var(--glass-border);
+    background: var(--bg-alt);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--text-color);
+}
+
+.footer-logo span {
+    color: var(--primary);
+}
+
+.footer-tag {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.7rem;
+    color: var(--primary);
 }
 
 /* Responsive */
@@ -663,63 +719,10 @@ nav {
     .hero-main-title {
         font-size: 8rem;
     }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
 }
-/ *   F o o t e r   * / 
- f o o t e r   { 
-         p a d d i n g :   6 r e m   0 ; 
-         b o r d e r - t o p :   1 p x   s o l i d   v a r ( - - g l a s s - b o r d e r ) ; 
-         b a c k g r o u n d :   v a r ( - - b g - a l t ) ; 
- } 
- 
- . f o o t e r - c o n t e n t   { 
-         d i s p l a y :   f l e x ; 
-         j u s t i f y - c o n t e n t :   s p a c e - b e t w e e n ; 
-         a l i g n - i t e m s :   c e n t e r ; 
-         c o l o r :   v a r ( - - t e x t - m u t e d ) ; 
-         f o n t - s i z e :   0 . 9 r e m ; 
- } 
- 
- . f o o t e r - l o g o   { 
-         f o n t - f a m i l y :   ' P l a y f a i r   D i s p l a y ' ,   s e r i f ; 
-         f o n t - s i z e :   1 . 5 r e m ; 
-         f o n t - w e i g h t :   9 0 0 ; 
-         c o l o r :   v a r ( - - t e x t - c o l o r ) ; 
- } 
- 
- . f o o t e r - l o g o   s p a n   { 
-         c o l o r :   v a r ( - - p r i m a r y ) ; 
- } 
- 
- . f o o t e r - t a g   { 
-         t e x t - t r a n s f o r m :   u p p e r c a s e ; 
-         l e t t e r - s p a c i n g :   2 p x ; 
-         f o n t - s i z e :   0 . 7 r e m ; 
-         c o l o r :   v a r ( - - p r i m a r y ) ; 
- } 
- 
- @ m e d i a   ( m a x - w i d t h :   7 6 8 p x )   { 
-         . f o o t e r - c o n t e n t   { 
-                 f l e x - d i r e c t i o n :   c o l u m n ; 
-                 g a p :   2 r e m ; 
-                 t e x t - a l i g n :   c e n t e r ; 
-         } 
- }  
- 
- / *   I m m e d i a t e   a n i m a t i o n s   f o r   H e r o   * / 
- . a n i m a t e - i n   { 
-         o p a c i t y :   0 ; 
-         t r a n s f o r m :   t r a n s l a t e Y ( 3 0 p x ) ; 
-         a n i m a t i o n :   s i m p l e F a d e I n   1 s   e a s e - o u t   f o r w a r d s ; 
- } 
- 
- . d e l a y - 1   {   a n i m a t i o n - d e l a y :   0 . 2 s ;   } 
- . d e l a y - 2   {   a n i m a t i o n - d e l a y :   0 . 4 s ;   } 
- . d e l a y - 3   {   a n i m a t i o n - d e l a y :   0 . 6 s ;   } 
- 
- @ k e y f r a m e s   s i m p l e F a d e I n   { 
-         t o   { 
-                 o p a c i t y :   1 ; 
-                 t r a n s f o r m :   t r a n s l a t e Y ( 0 ) ; 
-         } 
- }  
- 
