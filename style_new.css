@@ -504,8 +504,9 @@ nav {
 }
 
 .project-card h3 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.3rem; /* Reduced to fit in smaller 3-column layout */
+    margin-bottom: 1rem;
+    word-wrap: break-word; /* Ensure long words wrap if necessary */
 }
 
 .project-tech {
