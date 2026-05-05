@@ -76,6 +76,8 @@ header {
     width: 100%;
     z-index: 1000;
     padding: 2rem 0;
+    background: rgba(5, 0, 0, 0.8); /* Added default background to prevent overlap */
+    backdrop-filter: blur(10px);
     transition: var(--transition);
 }
 
@@ -360,6 +362,7 @@ nav {
 }
 
 .pull-quote {
+    clear: both; /* Clear the float from the drop cap */
     font-family: 'Playfair Display', serif;
     font-size: 2rem;
     font-style: italic;
