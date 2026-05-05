@@ -1,13 +1,13 @@
 :root {
-    --bg-color: #0d0000;
-    --bg-alt: #1a0505;
-    --text-color: #f8f1e5;
-    --text-muted: #b08d8d;
-    --primary: #c41e3a; /* Cardinal Red */
-    --secondary: #e6c200; /* Gold */
-    --accent: #ff3131;
-    --glass: rgba(196, 30, 58, 0.08);
-    --glass-border: rgba(196, 30, 58, 0.2);
+    --bg-color: #050000;
+    --bg-alt: #0a0000;
+    --text-color: #ffffff;
+    --text-muted: #a0a0a0;
+    --primary: #950101; /* Deep Crimson */
+    --secondary: #ffffff; /* Crisp White */
+    --accent: #ff0000;
+    --glass: rgba(149, 1, 1, 0.05);
+    --glass-border: rgba(149, 1, 1, 0.15);
     --transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
     --container-width: 1200px;
 }
@@ -143,7 +143,7 @@ nav {
     transform: translate(-50%, -50%);
     font-size: clamp(8rem, 25vw, 22rem);
     line-height: 0.8;
-    color: rgba(196, 30, 58, 0.08);
+    color: rgba(149, 1, 1, 0.05);
     z-index: 1;
     pointer-events: none;
     white-space: nowrap;
@@ -378,7 +378,7 @@ nav {
 }
 
 .skill-card:hover {
-    border-color: var(--secondary);
+    border-color: var(--primary);
     transform: translateY(-10px);
 }
 
@@ -425,7 +425,7 @@ nav {
 
 .project-card:hover {
     transform: translateY(-10px);
-    border-color: var(--secondary);
+    border-color: var(--primary);
 }
 
 .project-image {
