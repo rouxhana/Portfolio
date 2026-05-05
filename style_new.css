@@ -572,9 +572,19 @@ footer {
 
 .footer-content {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    text-align: center;
+    gap: 1.5rem;
     color: var(--text-muted);
+}
+
+.footer-tag {
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--primary);
 }
 
 /* Responsive */
