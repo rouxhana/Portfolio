@@ -343,28 +343,31 @@ nav {
 /* About Section */
 .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr; /* Stack into single centered column */
     gap: 4rem;
-    align-items: start;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .about-text {
-    padding-right: 2rem;
+    padding-right: 0;
 }
 
 .about-text p {
     font-size: 1.1rem;
     margin-bottom: 2rem;
     color: var(--text-muted);
-    text-align: justify;
+    text-align: center; /* Center paragraph text */
 }
 
 .drop-cap::first-letter {
     font-family: 'Playfair Display', serif;
-    font-size: 5rem;
-    float: left;
-    margin-right: 1rem;
-    line-height: 1;
+    font-size: 4rem;
+    display: inline-block; /* Replaced float left */
+    vertical-align: bottom;
+    margin-right: 0.2rem;
+    line-height: 0.8;
     color: var(--primary);
     font-weight: 700;
 }
@@ -403,8 +406,9 @@ nav {
 
 .experience-item {
     padding: 2rem;
-    border-left: 4px solid var(--primary);
+    border-top: 4px solid var(--primary); /* Changed to top border for centering */
     background: var(--glass);
+    text-align: center;
 }
 
 /* Skills Section */
@@ -488,6 +492,7 @@ nav {
 .project-info {
     padding: 2.5rem;
     flex-grow: 1;
+    text-align: center; /* Added for centering */
 }
 
 .project-status {
@@ -501,6 +506,14 @@ nav {
 .project-card h3 {
     font-size: 2rem;
     margin-bottom: 1.5rem;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    justify-content: center; /* Center the tags */
 }
 
 /* Contact Section */
