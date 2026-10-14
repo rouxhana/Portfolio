@@ -170,7 +170,8 @@
 
         <!-- Background Stencils & Spinners: Positioned safely to prevent text collision -->
         <div class="absolute inset-0 z-0 opacity-10 pointer-events-none select-none overflow-hidden">
-            <div class="absolute top-16 -left-8 sm:left-4 md:left-8 w-28 sm:w-36 h-28 sm:h-36 border-2 border-dashed border-brand-bordo rounded-full flex items-center justify-center animate-spin-slow">
+            <!-- Circular stencil moved away from status badge to avoid text overlap -->
+            <div class="absolute top-10 right-8 sm:right-16 md:right-28 w-28 sm:w-36 h-28 sm:h-36 border-2 border-dashed border-brand-bordo rounded-full flex items-center justify-center animate-spin-slow opacity-60">
                 <svg viewBox="0 0 100 100" class="w-full h-full overflow-visible">
                     <path id="curve" d="M 25, 50 a 25,25 0 1,1 50,0 a 25,25 0 1,1 -50,0" fill="transparent"></path>
                     <text class="text-[9px] font-mono font-bold fill-brand-bordo uppercase tracking-widest">
@@ -257,13 +258,13 @@
 
                 <!-- Text Inside -->
                 <div class="relative p-5 sm:p-7 md:p-9 text-center flex flex-col items-center">
-                    <div class="absolute inset-0 border border-brand-bordo rotate-1 opacity-15 pointer-events-none"></div>
-                    <div class="absolute inset-0 border border-brand-green -rotate-1 opacity-15 pointer-events-none"></div>
+                    <div class="absolute inset-2 border border-brand-bordo rotate-1 opacity-10 pointer-events-none"></div>
+                    <div class="absolute inset-2 border border-brand-green -rotate-1 opacity-10 pointer-events-none"></div>
                     
                     <span class="text-[9px] sm:text-[10px] md:text-[11px] uppercase font-mono font-bold text-brand-cream tracking-[0.3em] sm:tracking-[0.4em] mb-2 sm:mb-3 bg-brand-bordo px-2.5 sm:px-3 py-0.5">
                         Portfolio of
                     </span>
-                    <h1 class="font-display font-black text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-brand-bordo tracking-tight leading-none uppercase">
+                    <h1 class="font-display font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-brand-bordo tracking-tight leading-none uppercase">
                         Rouxhana<br><span class="text-brand-green">Firthous</span>
                     </h1>
                     <div class="font-heading font-semibold text-xs sm:text-sm md:text-base text-brand-black tracking-wide mt-3 flex items-center gap-1.5 sm:gap-2 flex-wrap justify-center">
