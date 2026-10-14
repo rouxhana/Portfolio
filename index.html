@@ -153,15 +153,15 @@
   </script>
 </head>
 
-<body class="flex justify-center min-h-screen py-0 sm:py-4 md:py-8 bg-brand-canvas font-body text-brand-black overflow-x-hidden selection:bg-brand-bordo selection:text-brand-cream">
+<body class="min-h-screen w-full m-0 p-0 bg-brand-paper font-body text-brand-black overflow-x-hidden selection:bg-brand-bordo selection:text-brand-cream">
 
-  <!-- Main Container Frame: Fluid & responsive across mobile, tablet, and widescreen desktop -->
-  <div class="w-full max-w-5xl xl:max-w-6xl bg-brand-paper shadow-none sm:shadow-[0px_0px_50px_rgba(20,28,27,0.25)] relative mx-auto flex flex-col sm:border border-brand-black/10 overflow-hidden">
+  <!-- Main Container Frame: 100% Full Screen Edge-to-Edge with Zero Margins -->
+  <div class="w-full min-h-screen flex flex-col bg-brand-paper overflow-x-hidden">
     
     <!-- HEADER SECTION -->
-    <header class="pt-6 sm:pt-10 md:pt-14 pb-20 sm:pb-24 md:pb-28 relative z-20 overflow-hidden bg-brand-paper">
-        <!-- Top Decorative Color Bar with Palette -->
-        <div class="w-full h-2.5 sm:h-3 flex shadow-sm mb-6 sm:mb-8">
+    <header class="w-full pt-6 sm:pt-8 md:pt-10 pb-16 sm:pb-20 md:pb-24 relative z-20 overflow-hidden bg-brand-paper">
+        <!-- Top Decorative Color Bar with Palette: Full Bleed -->
+        <div class="w-full h-2.5 sm:h-3 flex shadow-xs mb-6 sm:mb-8">
             <div class="h-full flex-1 bg-brand-bordo"></div>
             <div class="h-full flex-1 bg-brand-green"></div>
             <div class="h-full flex-1 bg-brand-cream"></div>
@@ -180,7 +180,7 @@
                 </svg>
             </div>
             <!-- Barcode placed in bottom-left so it never clashes with bottom-right social links -->
-            <div class="hidden sm:block absolute bottom-6 left-6 md:left-10 transform -rotate-3">
+            <div class="hidden sm:block absolute bottom-6 left-6 md:left-12 transform -rotate-3">
                  <div class="w-40 sm:w-44 h-11 border-2 border-brand-green flex items-center justify-between px-3 bg-brand-cream/30">
                     <div class="h-full w-1 bg-brand-green"></div>
                     <div class="h-full w-2.5 bg-brand-green"></div>
@@ -193,7 +193,7 @@
         </div>
 
         <!-- Top Nav Bar -->
-        <div class="header-animate-in relative z-30 flex justify-between items-center px-4 sm:px-6 md:px-10 text-[11px] font-heading font-bold tracking-widest text-brand-bordo uppercase">
+        <div class="header-animate-in relative z-30 max-w-7xl mx-auto w-full flex justify-between items-center px-4 sm:px-8 lg:px-12 text-[11px] font-heading font-bold tracking-widest text-brand-bordo uppercase">
             <!-- Left: Status Badge -->
             <div class="flex items-center gap-2">
                 <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -226,7 +226,7 @@
         </div>
 
         <!-- Mobile Navigation Dropdown Drawer -->
-        <div id="mobile-drawer" class="closed lg:hidden relative z-20 bg-brand-bordo text-brand-cream border-y-2 border-brand-black mx-3 sm:mx-6 mt-3 shadow-lg">
+        <div id="mobile-drawer" class="closed lg:hidden relative z-20 bg-brand-bordo text-brand-cream border-y-2 border-brand-black max-w-7xl mx-auto w-full px-3 sm:px-6 mt-3 shadow-lg">
             <div class="p-3 sm:p-4 grid grid-cols-2 gap-2 text-xs font-heading font-bold uppercase tracking-wider">
                 <a href="#about" class="mobile-nav-link p-2.5 bg-brand-black/25 hover:bg-brand-cream hover:text-brand-bordo transition-colors flex items-center justify-between rounded-xs">
                     <span>01 // About</span><span>→</span>
@@ -247,9 +247,9 @@
         </div>
 
         <!-- Main Logo / Hero Diamond Area -->
-        <div class="flex justify-center mt-10 md:mt-12 mb-12 sm:mb-16 relative px-3 sm:px-4">
+        <div class="flex justify-center mt-10 md:mt-12 mb-10 sm:mb-14 relative px-4">
             <!-- The Diamond / Editorial Badge -->
-            <div class="logo-animate-in relative w-full max-w-sm sm:max-w-lg md:max-w-xl lg:max-w-2xl border-2 border-brand-bordo transform scale-100 hover:scale-[1.01] transition-transform duration-500 cursor-default bg-brand-paper z-10 shadow-[6px_6px_0px_#6C151E] sm:shadow-[10px_10px_0px_#6C151E]">
+            <div class="logo-animate-in relative w-full max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-3xl border-2 border-brand-bordo transform scale-100 hover:scale-[1.01] transition-transform duration-500 cursor-default bg-brand-paper z-10 shadow-[8px_8px_0px_#6C151E] sm:shadow-[12px_12px_0px_#6C151E]">
                 <!-- Decorative Corners -->
                 <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-brand-bordo"></div>
                 <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-brand-bordo"></div>
@@ -257,25 +257,25 @@
                 <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-brand-bordo"></div>
 
                 <!-- Text Inside -->
-                <div class="relative p-5 sm:p-7 md:p-9 text-center flex flex-col items-center">
-                    <div class="absolute inset-2 border border-brand-bordo rotate-1 opacity-10 pointer-events-none"></div>
-                    <div class="absolute inset-2 border border-brand-green -rotate-1 opacity-10 pointer-events-none"></div>
+                <div class="relative px-6 py-6 sm:px-10 sm:py-8 md:px-14 md:py-10 text-center flex flex-col items-center">
+                    <div class="absolute inset-2.5 sm:inset-3 border border-brand-bordo/15 pointer-events-none"></div>
+                    <div class="absolute inset-4 sm:inset-5 border border-brand-green/15 pointer-events-none"></div>
                     
-                    <span class="text-[9px] sm:text-[10px] md:text-[11px] uppercase font-mono font-bold text-brand-cream tracking-[0.3em] sm:tracking-[0.4em] mb-2 sm:mb-3 bg-brand-bordo px-2.5 sm:px-3 py-0.5">
+                    <span class="text-[9px] sm:text-[10px] md:text-[11px] uppercase font-mono font-bold text-brand-cream tracking-[0.3em] sm:tracking-[0.4em] mb-2 sm:mb-3 bg-brand-bordo px-3 py-0.5">
                         Portfolio of
                     </span>
-                    <h1 class="font-display font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-brand-bordo tracking-tight leading-none uppercase">
+                    <h1 class="font-display font-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-brand-bordo tracking-normal sm:tracking-tight leading-[1.08] uppercase">
                         Rouxhana<br><span class="text-brand-green">Firthous</span>
                     </h1>
                     <div class="font-heading font-semibold text-xs sm:text-sm md:text-base text-brand-black tracking-wide mt-3 flex items-center gap-1.5 sm:gap-2 flex-wrap justify-center">
-                        <span class="bg-brand-canvas px-2 py-0.5 rounded-sm">BTech IT (Class of 2027)</span>
+                        <span class="bg-brand-canvas px-2.5 py-0.5 rounded-sm">BTech IT (Class of 2027)</span>
                         <span class="text-brand-terracotta hidden sm:inline">•</span>
                         <span class="text-brand-bordo font-bold">Aspiring Product Manager</span>
                         <span class="text-brand-terracotta hidden sm:inline">•</span>
                         <span class="text-brand-green">Data Analyst</span>
                     </div>
 
-                    <p class="mt-3 sm:mt-4 text-xs sm:text-sm text-brand-black/75 max-w-md md:max-w-lg font-body leading-relaxed mx-auto">
+                    <p class="mt-3 sm:mt-4 text-xs sm:text-sm text-brand-black/75 max-w-lg font-body leading-relaxed mx-auto">
                         Bridging engineering foundations, data-backed insights, and cross-functional leadership to turn ambiguous problems into ship-ready digital products.
                     </p>
 
@@ -292,7 +292,7 @@
         </div>
 
         <!-- Social Icons (Floating Badge) -->
-        <div class="header-animate-in absolute bottom-4 right-4 sm:right-6 md:right-10 flex gap-2 sm:gap-2.5 z-20">
+        <div class="header-animate-in absolute bottom-4 right-4 sm:right-8 md:right-12 flex gap-2 sm:gap-2.5 z-20">
             <a href="https://www.linkedin.com/in/rouxhana-firthous-9197a0301" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="w-8 h-8 sm:w-7 sm:h-7 bg-brand-green rotate-45 flex items-center justify-center text-brand-cream text-[11px] hover:bg-brand-black transition-colors duration-300 group shadow-sm">
                 <span class="-rotate-45 font-bold font-mono group-hover:rotate-0 transition-transform duration-300">in</span>
             </a>
@@ -308,10 +308,10 @@
     <main class="flex-grow">
 
         <!-- ABOUT SECTION (DEEP GREEN BACKDROP) -->
-        <section class="bg-brand-green text-brand-cream relative pb-16 pt-10 sm:pt-12 overflow-hidden border-t-2 border-brand-bordo" id="about">
-            <div class="flex flex-col lg:flex-row h-full">
+        <section class="w-full bg-brand-green text-brand-cream relative pb-16 pt-10 sm:pt-14 overflow-hidden border-t-2 border-brand-bordo" id="about">
+            <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 flex flex-col lg:flex-row h-full">
                 <!-- Left: List / Story items -->
-                <div class="w-full lg:w-3/5 p-6 sm:p-8 md:p-12 space-y-6 sm:space-y-8">
+                <div class="w-full lg:w-3/5 p-4 sm:p-6 md:p-8 lg:p-10 space-y-6 sm:space-y-8">
                     <div class="border-b border-brand-cream/20 pb-4">
                         <span class="font-mono text-[10px] text-brand-cream/70 tracking-widest uppercase">01 // The Narrative</span>
                         <h2 class="font-display text-3xl md:text-4xl text-brand-cream mt-1 tracking-tight">About Me &amp; Vision</h2>
@@ -398,7 +398,8 @@
         </section>
 
         <!-- SERVICES / CORE COMPETENCIES (ZINE RESTAURANT MENU STYLE) -->
-        <section class="flex flex-col md:flex-row min-h-[500px] relative bg-brand-paper overflow-hidden border-b-2 border-brand-black/10" id="services">
+        <section class="w-full flex flex-col relative bg-brand-paper overflow-hidden border-b-2 border-brand-black/10" id="services">
+            <div class="max-w-7xl mx-auto w-full flex flex-col md:flex-row min-h-[500px]">
             
             <!-- Top Floating Stamp Elements -->
             <div class="absolute -top-6 left-6 sm:left-14 w-12 h-12 bg-brand-bordo rounded-full flex items-center justify-center z-20 border-4 border-brand-paper animate-spin-slow shadow-lg hover:scale-110 transition-transform cursor-pointer">
@@ -505,6 +506,7 @@
                     </div>
                 </div>
             </div>
+            </div>
             
             <!-- Bottom Graphic Stamp -->
             <div class="absolute bottom-[-25px] left-1/2 transform -translate-x-1/2 z-20 hover:translate-y-[-6px] transition-transform duration-300">
@@ -515,127 +517,129 @@
         </section>
 
         <!-- FEATURED PROJECTS (ZINE STENCIL GRID) -->
-        <section id="projects" class="bg-brand-paper pt-10 sm:pt-12 pb-14 sm:pb-16 relative">
-            <!-- Header -->
-            <div class="reveal-on-scroll text-center mb-8 sm:mb-10 relative px-4">
-                <span class="font-mono text-xs font-bold text-brand-bordo uppercase tracking-widest">02 // Selected Works</span>
-                <h2 class="font-display font-black text-3xl sm:text-4xl md:text-5xl text-brand-green uppercase tracking-tight mt-1" style="text-shadow: 2px 2px 0px #F5DABF;">
-                    Featured Projects
-                </h2>
-                <div class="md:absolute top-1/2 right-6 md:right-10 md:transform md:-translate-y-1/2 text-xs font-heading font-bold text-brand-bordo uppercase mt-2 md:mt-0">
-                    <a href="https://github.com/rouxhana?tab=repositories" target="_blank" rel="noopener noreferrer" class="hover:text-brand-green transition-colors inline-flex items-center gap-1">
-                        <span>View All On GitHub</span><span>→</span>
+        <section id="projects" class="w-full bg-brand-paper pt-12 sm:pt-16 pb-16 sm:pb-20 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
+                <!-- Header -->
+                <div class="reveal-on-scroll text-center mb-8 sm:mb-10 relative">
+                    <span class="font-mono text-xs font-bold text-brand-bordo uppercase tracking-widest">02 // Selected Works</span>
+                    <h2 class="font-display font-black text-3xl sm:text-4xl md:text-5xl text-brand-green uppercase tracking-tight mt-1" style="text-shadow: 2px 2px 0px #F5DABF;">
+                        Featured Projects
+                    </h2>
+                    <div class="md:absolute top-1/2 right-0 md:transform md:-translate-y-1/2 text-xs font-heading font-bold text-brand-bordo uppercase mt-2 md:mt-0">
+                        <a href="https://github.com/rouxhana?tab=repositories" target="_blank" rel="noopener noreferrer" class="hover:text-brand-green transition-colors inline-flex items-center gap-1">
+                            <span>View All On GitHub</span><span>→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Grid of 3 Real GitHub Projects: 1 col on mobile, 2 col on tablet, 3 col on desktop -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full border border-brand-black/15 shadow-sm">
+                    
+                    <!-- Project 1 (AapThozhi - Deep Green) -->
+                    <div class="reveal-on-scroll delay-[100ms] group relative bg-brand-green text-brand-cream p-5 sm:p-6 lg:p-7 flex flex-col justify-between border-b md:border-b-0 md:border-r border-brand-paper/30 hover:brightness-105 transition duration-300 min-h-[360px] sm:min-h-[380px]">
+                        <div>
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="text-[9px] font-mono font-bold text-brand-cream bg-brand-bordo px-2.5 py-0.5 uppercase tracking-wider">
+                                    Civic Tech • Voice
+                                </span>
+                                <div class="w-3 h-3 rounded-full bg-brand-cream"></div>
+                            </div>
+
+                            <h3 class="font-display font-bold text-xl sm:text-2xl text-brand-cream mb-2 group-hover:text-brand-cream transition-colors">
+                                AapThozhi
+                            </h3>
+                            <p class="text-xs text-brand-cream/85 font-body leading-relaxed mb-4">
+                                Voice-first, icon-first multilingual support companion helping women navigate government welfare schemes across 14 languages. Designed with anti-fraud security, offline/online pathways, and counter-ready scripts.
+                            </p>
+                        </div>
+
+                        <div>
+                            <div class="flex flex-wrap gap-1.5 mb-4">
+                                <span class="text-[9px] font-mono bg-black/30 text-brand-cream px-2 py-0.5">React 19</span>
+                                <span class="text-[9px] font-mono bg-black/30 text-brand-cream px-2 py-0.5">TypeScript</span>
+                                <span class="text-[9px] font-mono bg-black/30 text-brand-cream px-2 py-0.5">Tailwind CSS</span>
+                                <span class="text-[9px] font-mono bg-black/30 text-brand-cream px-2 py-0.5">Web Speech API</span>
+                            </div>
+                            <a href="https://github.com/rouxhana/aapthozhi" target="_blank" rel="noopener noreferrer" class="w-full min-h-[44px] flex items-center justify-between py-2.5 px-3 bg-brand-paper text-brand-green font-heading text-xs font-bold uppercase tracking-wider hover:bg-brand-bordo hover:text-brand-cream transition-colors">
+                                <span>View Repository</span>
+                                <span>↗</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 (AgriHelp - Warm Cream Background with Bordo Accents) -->
+                    <div class="reveal-on-scroll delay-[200ms] group relative bg-brand-cream text-brand-black p-5 sm:p-6 lg:p-7 flex flex-col justify-between border-b md:border-b-0 lg:border-r border-brand-black/15 hover:bg-brand-sand transition duration-300 min-h-[360px] sm:min-h-[380px]">
+                        <div>
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="text-[9px] font-mono font-bold text-brand-cream bg-brand-green px-2.5 py-0.5 uppercase tracking-wider">
+                                    AgriTech • AI
+                                </span>
+                                <div class="w-3 h-3 rounded-full bg-brand-bordo"></div>
+                            </div>
+
+                            <h3 class="font-display font-bold text-xl sm:text-2xl text-brand-bordo mb-2">
+                                AgriHelp (Agri-Guide-Mini)
+                            </h3>
+                            <p class="text-xs text-brand-black/85 font-body leading-relaxed mb-4">
+                                Accessible agricultural guidance web platform designed specifically for small-scale farmers in Tamil Nadu with under 1 acre of land. Provides personalized crop selection, step-by-step cultivation roadmaps, and an AI farming assistant.
+                            </p>
+                        </div>
+
+                        <div>
+                            <div class="flex flex-wrap gap-1.5 mb-4">
+                                <span class="text-[9px] font-mono bg-brand-bordo/10 text-brand-bordo px-2 py-0.5">JavaScript</span>
+                                <span class="text-[9px] font-mono bg-brand-bordo/10 text-brand-bordo px-2 py-0.5">HTML5 / CSS3</span>
+                                <span class="text-[9px] font-mono bg-brand-bordo/10 text-brand-bordo px-2 py-0.5">AI Assistant</span>
+                                <span class="text-[9px] font-mono bg-brand-bordo/10 text-brand-bordo px-2 py-0.5">UX Research</span>
+                            </div>
+                            <a href="https://github.com/rouxhana/Agri-Guide-Mini" target="_blank" rel="noopener noreferrer" class="w-full min-h-[44px] flex items-center justify-between py-2.5 px-3 bg-brand-bordo text-brand-cream font-heading text-xs font-bold uppercase tracking-wider hover:bg-brand-black transition-colors">
+                                <span>View Repository</span>
+                                <span>↗</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 (Portfolio - Bordo) -->
+                    <div class="reveal-on-scroll delay-[300ms] group relative bg-brand-bordo text-brand-cream p-5 sm:p-6 lg:p-7 flex flex-col justify-between md:col-span-2 lg:col-span-1 border-t md:border-t-0 border-brand-black/15 hover:brightness-105 transition duration-300 min-h-[360px] sm:min-h-[380px]">
+                        <div>
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="text-[9px] font-mono font-bold text-brand-cream bg-brand-green px-2.5 py-0.5 uppercase tracking-wider">
+                                    Live Showcase
+                                </span>
+                                <div class="w-3 h-3 rounded-full bg-brand-cream"></div>
+                            </div>
+
+                            <h3 class="font-display font-bold text-xl sm:text-2xl text-brand-cream mb-2">
+                                Product Portfolio &amp; Casebook
+                            </h3>
+                            <p class="text-xs text-brand-cream/85 font-body leading-relaxed mb-4">
+                                Editorial zine portfolio engineered to present product management thinking, data analysis competencies, and technical versatility. Features custom stencils, interactive competencies, and full GitHub integration.
+                            </p>
+                        </div>
+
+                        <div>
+                            <div class="flex flex-wrap gap-1.5 mb-4">
+                                <span class="text-[9px] font-mono bg-black/30 text-brand-cream px-2 py-0.5">HTML5 / CSS3</span>
+                                <span class="text-[9px] font-mono bg-black/30 text-brand-cream px-2 py-0.5">Vanilla JS</span>
+                                <span class="text-[9px] font-mono bg-black/30 text-brand-cream px-2 py-0.5">Tailwind</span>
+                                <span class="text-[9px] font-mono bg-black/30 text-brand-cream px-2 py-0.5">Zine Layout</span>
+                            </div>
+                            <a href="https://github.com/rouxhana/Portfolio" target="_blank" rel="noopener noreferrer" class="w-full min-h-[44px] flex items-center justify-between py-2.5 px-3 bg-brand-paper text-brand-bordo font-heading text-xs font-bold uppercase tracking-wider hover:bg-brand-green hover:text-brand-cream transition-colors">
+                                <span>View Repository</span>
+                                <span>↗</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Bottom GitHub Repositories Link -->
+                <div class="mt-8 text-center">
+                    <a href="https://github.com/rouxhana?tab=repositories" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 sm:px-6 py-3 border-2 border-brand-bordo text-brand-bordo font-heading font-bold text-xs uppercase tracking-widest hover:bg-brand-bordo hover:text-brand-cream transition-all shadow-[4px_4px_0px_#0F3D3A] min-h-[44px]">
+                        <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        <span>Explore All Repositories on GitHub</span>
                     </a>
                 </div>
-            </div>
-
-            <!-- Grid of 3 Real GitHub Projects: 1 col on mobile, 2 col on tablet, 3 col on desktop -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full border-t border-b border-brand-black/15">
-                
-                <!-- Project 1 (AapThozhi - Deep Green) -->
-                <div class="reveal-on-scroll delay-[100ms] group relative bg-brand-green text-brand-cream p-5 sm:p-6 lg:p-7 flex flex-col justify-between border-b md:border-b-0 md:border-r border-brand-paper/30 hover:brightness-105 transition duration-300 min-h-[360px] sm:min-h-[380px]">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[9px] font-mono font-bold text-brand-cream bg-brand-bordo px-2.5 py-0.5 uppercase tracking-wider">
-                                Civic Tech • Voice
-                            </span>
-                            <div class="w-3 h-3 rounded-full bg-brand-cream"></div>
-                        </div>
-
-                        <h3 class="font-display font-bold text-xl sm:text-2xl text-brand-cream mb-2 group-hover:text-brand-cream transition-colors">
-                            AapThozhi
-                        </h3>
-                        <p class="text-xs text-brand-cream/85 font-body leading-relaxed mb-4">
-                            Voice-first, icon-first multilingual support companion helping women navigate government welfare schemes across 14 languages. Designed with anti-fraud security, offline/online pathways, and counter-ready scripts.
-                        </p>
-                    </div>
-
-                    <div>
-                        <div class="flex flex-wrap gap-1.5 mb-4">
-                            <span class="text-[9px] font-mono bg-black/30 text-brand-cream px-2 py-0.5">React 19</span>
-                            <span class="text-[9px] font-mono bg-black/30 text-brand-cream px-2 py-0.5">TypeScript</span>
-                            <span class="text-[9px] font-mono bg-black/30 text-brand-cream px-2 py-0.5">Tailwind CSS</span>
-                            <span class="text-[9px] font-mono bg-black/30 text-brand-cream px-2 py-0.5">Web Speech API</span>
-                        </div>
-                        <a href="https://github.com/rouxhana/aapthozhi" target="_blank" rel="noopener noreferrer" class="w-full min-h-[44px] flex items-center justify-between py-2.5 px-3 bg-brand-paper text-brand-green font-heading text-xs font-bold uppercase tracking-wider hover:bg-brand-bordo hover:text-brand-cream transition-colors">
-                            <span>View Repository</span>
-                            <span>↗</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 2 (AgriHelp - Warm Cream Background with Bordo Accents) -->
-                <div class="reveal-on-scroll delay-[200ms] group relative bg-brand-cream text-brand-black p-5 sm:p-6 lg:p-7 flex flex-col justify-between border-b md:border-b-0 lg:border-r border-brand-black/15 hover:bg-brand-sand transition duration-300 min-h-[360px] sm:min-h-[380px]">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[9px] font-mono font-bold text-brand-cream bg-brand-green px-2.5 py-0.5 uppercase tracking-wider">
-                                AgriTech • AI
-                            </span>
-                            <div class="w-3 h-3 rounded-full bg-brand-bordo"></div>
-                        </div>
-
-                        <h3 class="font-display font-bold text-xl sm:text-2xl text-brand-bordo mb-2">
-                            AgriHelp (Agri-Guide-Mini)
-                        </h3>
-                        <p class="text-xs text-brand-black/85 font-body leading-relaxed mb-4">
-                            Accessible agricultural guidance web platform designed specifically for small-scale farmers in Tamil Nadu with under 1 acre of land. Provides personalized crop selection, step-by-step cultivation roadmaps, and an AI farming assistant.
-                        </p>
-                    </div>
-
-                    <div>
-                        <div class="flex flex-wrap gap-1.5 mb-4">
-                            <span class="text-[9px] font-mono bg-brand-bordo/10 text-brand-bordo px-2 py-0.5">JavaScript</span>
-                            <span class="text-[9px] font-mono bg-brand-bordo/10 text-brand-bordo px-2 py-0.5">HTML5 / CSS3</span>
-                            <span class="text-[9px] font-mono bg-brand-bordo/10 text-brand-bordo px-2 py-0.5">AI Assistant</span>
-                            <span class="text-[9px] font-mono bg-brand-bordo/10 text-brand-bordo px-2 py-0.5">UX Research</span>
-                        </div>
-                        <a href="https://github.com/rouxhana/Agri-Guide-Mini" target="_blank" rel="noopener noreferrer" class="w-full min-h-[44px] flex items-center justify-between py-2.5 px-3 bg-brand-bordo text-brand-cream font-heading text-xs font-bold uppercase tracking-wider hover:bg-brand-black transition-colors">
-                            <span>View Repository</span>
-                            <span>↗</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 3 (Portfolio - Bordo) -->
-                <div class="reveal-on-scroll delay-[300ms] group relative bg-brand-bordo text-brand-cream p-5 sm:p-6 lg:p-7 flex flex-col justify-between md:col-span-2 lg:col-span-1 border-t md:border-t-0 border-brand-black/15 hover:brightness-105 transition duration-300 min-h-[360px] sm:min-h-[380px]">
-                    <div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[9px] font-mono font-bold text-brand-cream bg-brand-green px-2.5 py-0.5 uppercase tracking-wider">
-                                Live Showcase
-                            </span>
-                            <div class="w-3 h-3 rounded-full bg-brand-cream"></div>
-                        </div>
-
-                        <h3 class="font-display font-bold text-xl sm:text-2xl text-brand-cream mb-2">
-                            Product Portfolio &amp; Casebook
-                        </h3>
-                        <p class="text-xs text-brand-cream/85 font-body leading-relaxed mb-4">
-                            Editorial zine portfolio engineered to present product management thinking, data analysis competencies, and technical versatility. Features custom stencils, interactive competencies, and full GitHub integration.
-                        </p>
-                    </div>
-
-                    <div>
-                        <div class="flex flex-wrap gap-1.5 mb-4">
-                            <span class="text-[9px] font-mono bg-black/30 text-brand-cream px-2 py-0.5">HTML5 / CSS3</span>
-                            <span class="text-[9px] font-mono bg-black/30 text-brand-cream px-2 py-0.5">Vanilla JS</span>
-                            <span class="text-[9px] font-mono bg-black/30 text-brand-cream px-2 py-0.5">Tailwind</span>
-                            <span class="text-[9px] font-mono bg-black/30 text-brand-cream px-2 py-0.5">Zine Layout</span>
-                        </div>
-                        <a href="https://github.com/rouxhana/Portfolio" target="_blank" rel="noopener noreferrer" class="w-full min-h-[44px] flex items-center justify-between py-2.5 px-3 bg-brand-paper text-brand-bordo font-heading text-xs font-bold uppercase tracking-wider hover:bg-brand-green hover:text-brand-cream transition-colors">
-                            <span>View Repository</span>
-                            <span>↗</span>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Bottom GitHub Repositories Link -->
-            <div class="mt-8 text-center px-4">
-                <a href="https://github.com/rouxhana?tab=repositories" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 sm:px-6 py-3 border-2 border-brand-bordo text-brand-bordo font-heading font-bold text-xs uppercase tracking-widest hover:bg-brand-bordo hover:text-brand-cream transition-all shadow-[4px_4px_0px_#0F3D3A] min-h-[44px]">
-                    <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                    <span>Explore All Repositories on GitHub</span>
-                </a>
             </div>
 
             <!-- Footer Decorative Triangle -->
@@ -645,8 +649,8 @@
         </section>
 
         <!-- LEADERSHIP & EXPERIENCE SECTION -->
-        <section id="leadership" class="bg-brand-canvas py-10 sm:py-14 px-4 sm:px-6 md:px-12 border-t-2 border-brand-green">
-            <div class="max-w-2xl mx-auto">
+        <section id="leadership" class="w-full bg-brand-canvas py-12 sm:py-16 px-4 sm:px-8 lg:px-12 border-t-2 border-brand-green">
+            <div class="max-w-4xl mx-auto">
                 <div class="text-center mb-8 sm:mb-10">
                     <span class="font-mono text-xs font-bold text-brand-green uppercase tracking-widest">03 // Track Record</span>
                     <h2 class="font-display font-black text-2xl sm:text-3xl md:text-4xl text-brand-bordo uppercase tracking-tight mt-1">
@@ -705,68 +709,70 @@
     </main>
 
     <!-- FOOTER SECTION (BORDO & CREAM) -->
-    <footer id="contact" class="bg-brand-bordo text-brand-cream pt-12 sm:pt-14 pb-10 px-4 sm:px-6 md:px-12 relative z-0 border-t-2 border-brand-black">
-        <div class="flex flex-col md:flex-row justify-between items-center md:items-end gap-8 md:gap-10 text-center md:text-left">
-            
-            <!-- Left Info -->
-            <div class="text-[11px] font-heading font-bold uppercase tracking-widest space-y-2 opacity-90 reveal-on-scroll flex flex-col items-center md:items-start">
-                <div class="text-brand-cream font-mono text-[10px] bg-brand-black/40 px-2 py-0.5 inline-block">OPEN FOR APM / PM ROLES</div>
-                <div class="text-brand-cream/80 pt-2">Full-Time &amp; Internship Opportunities</div>
-                <div class="text-brand-cream/80">Class of 2027 // BTech IT</div>
-                <div class="pt-3 hover:text-brand-cream transition-colors">
-                    <a href="mailto:rouxhana9894@gmail.com" class="font-mono text-xs text-brand-cream underline decoration-brand-cream/40 underline-offset-4">rouxhana9894@gmail.com</a>
+    <footer id="contact" class="w-full bg-brand-bordo text-brand-cream pt-14 pb-10 px-4 sm:px-8 lg:px-12 relative z-0 border-t-2 border-brand-black">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-end gap-8 md:gap-10 text-center md:text-left">
+                
+                <!-- Left Info -->
+                <div class="text-[11px] font-heading font-bold uppercase tracking-widest space-y-2 opacity-90 reveal-on-scroll flex flex-col items-center md:items-start">
+                    <div class="text-brand-cream font-mono text-[10px] bg-brand-black/40 px-2 py-0.5 inline-block">OPEN FOR APM / PM ROLES</div>
+                    <div class="text-brand-cream/80 pt-2">Full-Time &amp; Internship Opportunities</div>
+                    <div class="text-brand-cream/80">Class of 2027 // BTech IT</div>
+                    <div class="pt-3 hover:text-brand-cream transition-colors">
+                        <a href="mailto:rouxhana9894@gmail.com" class="font-mono text-xs text-brand-cream underline decoration-brand-cream/40 underline-offset-4">rouxhana9894@gmail.com</a>
+                    </div>
+                    <div class="font-mono text-xs text-brand-cream/90">Tamil Nadu, India</div>
                 </div>
-                <div class="font-mono text-xs text-brand-cream/90">Tamil Nadu, India</div>
-            </div>
 
-            <!-- Center Logo Stamp & QR -->
-            <div class="mx-auto my-2 md:my-0 reveal-on-scroll delay-100 flex flex-col items-center">
-                <div class="w-32 h-14 border-2 border-brand-cream/40 flex items-center justify-center hover:border-brand-cream hover:bg-white/5 transition-all cursor-default">
-                    <div class="w-24 h-7 border border-brand-cream/40 flex items-center justify-center transform rotate-180">
-                         <span class="font-display font-black text-sm tracking-widest text-brand-cream">RF.</span>
+                <!-- Center Logo Stamp & QR -->
+                <div class="mx-auto my-2 md:my-0 reveal-on-scroll delay-100 flex flex-col items-center">
+                    <div class="w-32 h-14 border-2 border-brand-cream/40 flex items-center justify-center hover:border-brand-cream hover:bg-white/5 transition-all cursor-default">
+                        <div class="w-24 h-7 border border-brand-cream/40 flex items-center justify-center transform rotate-180">
+                             <span class="font-display font-black text-sm tracking-widest text-brand-cream">RF.</span>
+                        </div>
+                    </div>
+                    
+                    <!-- QR Code Stamp -->
+                    <div class="mt-4 p-2.5 bg-brand-cream border-2 border-brand-black shadow-md flex flex-col items-center">
+                        <img src="images/portfolio_qr_bordo.png" alt="Scan to open portfolio on mobile" class="w-24 h-24 object-contain">
+                        <div class="mt-1.5 flex items-center justify-between w-full text-[9px] font-mono font-bold text-brand-black gap-2">
+                            <span>SCAN ON MOBILE</span>
+                            <a href="images/portfolio_qr_classic.png" download="Rouxhana_Portfolio_QR.png" title="Download for Resume" class="text-brand-bordo hover:underline p-1">PNG ↓</a>
+                        </div>
+                    </div>
+                    <div class="font-mono text-[9px] uppercase tracking-widest text-brand-cream/60 mt-2">ROUXHANA FIRTHOUS</div>
+                </div>
+
+                <!-- Right Links -->
+                <div class="flex flex-col items-center md:items-end gap-3 reveal-on-scroll delay-200">
+                    <div class="flex flex-wrap justify-center md:justify-end gap-4 text-[11px] font-heading font-bold uppercase tracking-widest text-brand-cream/90">
+                        <a href="#about" class="hover:text-brand-cream transition py-1">About</a>
+                        <a href="#services" class="hover:text-brand-cream transition py-1">Skills</a>
+                        <a href="#projects" class="hover:text-brand-cream transition py-1">Projects</a>
+                    </div>
+                    <div class="flex gap-4 text-[11px] font-heading font-bold uppercase tracking-widest text-brand-cream/90">
+                        <a href="https://github.com/rouxhana" target="_blank" rel="noopener noreferrer" class="hover:text-brand-cream transition py-1">GitHub ↗</a>
+                        <a href="https://www.linkedin.com/in/rouxhana-firthous-9197a0301" target="_blank" rel="noopener noreferrer" class="hover:text-brand-cream transition py-1">LinkedIn ↗</a>
+                    </div>
+                    
+                    <div class="flex gap-3 mt-3">
+                        <a href="https://www.linkedin.com/in/rouxhana-firthous-9197a0301" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="w-9 h-9 sm:w-8 sm:h-8 border border-brand-cream rotate-45 flex items-center justify-center hover:bg-brand-cream hover:text-brand-bordo transition cursor-pointer group shadow-sm">
+                            <span class="-rotate-45 font-bold font-mono text-[10px] group-hover:rotate-0 transition-transform">in</span>
+                        </a>
+                        <a href="https://github.com/rouxhana" target="_blank" rel="noopener noreferrer" title="GitHub" class="w-9 h-9 sm:w-8 sm:h-8 border border-brand-cream rotate-45 flex items-center justify-center hover:bg-brand-cream hover:text-brand-bordo transition cursor-pointer group shadow-sm">
+                            <span class="-rotate-45 font-bold font-mono text-[10px] group-hover:rotate-0 transition-transform">gh</span>
+                        </a>
+                        <a href="mailto:rouxhana9894@gmail.com" class="w-9 h-9 sm:w-8 sm:h-8 border border-brand-cream rotate-45 flex items-center justify-center hover:bg-brand-cream hover:text-brand-bordo transition cursor-pointer group shadow-sm">
+                            <span class="-rotate-45 font-bold font-mono text-[10px] group-hover:rotate-0 transition-transform">@</span>
+                        </a>
                     </div>
                 </div>
-                
-                <!-- QR Code Stamp -->
-                <div class="mt-4 p-2.5 bg-brand-cream border-2 border-brand-black shadow-md flex flex-col items-center">
-                    <img src="images/portfolio_qr_bordo.png" alt="Scan to open portfolio on mobile" class="w-24 h-24 object-contain">
-                    <div class="mt-1.5 flex items-center justify-between w-full text-[9px] font-mono font-bold text-brand-black gap-2">
-                        <span>SCAN ON MOBILE</span>
-                        <a href="images/portfolio_qr_classic.png" download="Rouxhana_Portfolio_QR.png" title="Download for Resume" class="text-brand-bordo hover:underline p-1">PNG ↓</a>
-                    </div>
-                </div>
-                <div class="font-mono text-[9px] uppercase tracking-widest text-brand-cream/60 mt-2">ROUXHANA FIRTHOUS</div>
             </div>
 
-            <!-- Right Links -->
-            <div class="flex flex-col items-center md:items-end gap-3 reveal-on-scroll delay-200">
-                <div class="flex flex-wrap justify-center md:justify-end gap-4 text-[11px] font-heading font-bold uppercase tracking-widest text-brand-cream/90">
-                    <a href="#about" class="hover:text-brand-cream transition py-1">About</a>
-                    <a href="#services" class="hover:text-brand-cream transition py-1">Skills</a>
-                    <a href="#projects" class="hover:text-brand-cream transition py-1">Projects</a>
-                </div>
-                <div class="flex gap-4 text-[11px] font-heading font-bold uppercase tracking-widest text-brand-cream/90">
-                    <a href="https://github.com/rouxhana" target="_blank" rel="noopener noreferrer" class="hover:text-brand-cream transition py-1">GitHub ↗</a>
-                    <a href="https://www.linkedin.com/in/rouxhana-firthous-9197a0301" target="_blank" rel="noopener noreferrer" class="hover:text-brand-cream transition py-1">LinkedIn ↗</a>
-                </div>
-                
-                <div class="flex gap-3 mt-3">
-                    <a href="https://www.linkedin.com/in/rouxhana-firthous-9197a0301" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="w-9 h-9 sm:w-8 sm:h-8 border border-brand-cream rotate-45 flex items-center justify-center hover:bg-brand-cream hover:text-brand-bordo transition cursor-pointer group shadow-sm">
-                        <span class="-rotate-45 font-bold font-mono text-[10px] group-hover:rotate-0 transition-transform">in</span>
-                    </a>
-                    <a href="https://github.com/rouxhana" target="_blank" rel="noopener noreferrer" title="GitHub" class="w-9 h-9 sm:w-8 sm:h-8 border border-brand-cream rotate-45 flex items-center justify-center hover:bg-brand-cream hover:text-brand-bordo transition cursor-pointer group shadow-sm">
-                        <span class="-rotate-45 font-bold font-mono text-[10px] group-hover:rotate-0 transition-transform">gh</span>
-                    </a>
-                    <a href="mailto:rouxhana9894@gmail.com" class="w-9 h-9 sm:w-8 sm:h-8 border border-brand-cream rotate-45 flex items-center justify-center hover:bg-brand-cream hover:text-brand-bordo transition cursor-pointer group shadow-sm">
-                        <span class="-rotate-45 font-bold font-mono text-[10px] group-hover:rotate-0 transition-transform">@</span>
-                    </a>
-                </div>
+            <div class="border-t border-brand-cream/20 mt-10 pt-4 flex flex-col sm:flex-row justify-between items-center text-[10px] font-mono text-brand-cream/60 gap-2 text-center sm:text-left">
+                <p>&copy; 2024–2027 Rouxhana Firthous. Built for Product Leadership.</p>
+                <p>Designed in Bordo, Pine Green &amp; Cream.</p>
             </div>
-        </div>
-
-        <div class="border-t border-brand-cream/20 mt-10 pt-4 flex flex-col sm:flex-row justify-between items-center text-[10px] font-mono text-brand-cream/60 gap-2 text-center sm:text-left">
-            <p>&copy; 2024–2027 Rouxhana Firthous. Built for Product Leadership.</p>
-            <p>Designed in Bordo, Pine Green &amp; Cream.</p>
         </div>
     </footer>
 
