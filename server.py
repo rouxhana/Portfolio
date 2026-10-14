@@ -11,7 +11,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         super().__init__(*args, directory=DIRECTORY, **kwargs)
 
 def start_server():
-    with socketserver.TCPServer(("", PORT), Handler) as httpd:
+    with socketserver.ThreadingTCPServer(("", PORT), Handler) as httpd:
         url = f"http://localhost:{PORT}"
         print(f"Server started at {url}")
         print(f"Serving files from: {DIRECTORY}")

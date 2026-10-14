@@ -21,7 +21,7 @@ An editorial, zine-inspired personal portfolio designed for **Rouxhana Firthous*
   - [**AgriHelp (Agri-Guide-Mini)**](https://github.com/rouxhana/Agri-Guide-Mini): Accessible farming guidance web app for smallholder farmers in Tamil Nadu (<1 acre).
   - [**Portfolio & Casebook**](https://github.com/rouxhana/Portfolio): This live editorial showcase.
 - **Resume**: [Interactive Resume](https://rouxhana.github.io/Portfolio/resume.html) | [Download PDF](https://rouxhana.github.io/Portfolio/Rouxhana_Firthous_Resume.pdf)
-- **Leadership & Track Record**: Highlighting role as Learning Vertical Chair, academic event coordination, and certifications.
+- **Professional Experience & Track Record**: Highlighting roles as Student Associate Product Manager (Technical Vertical Lead) and Product Analyst (AapThozhi), with measurable impact across Agile sprints, user feedback loops, and product KPIs.
 
 ---
 
