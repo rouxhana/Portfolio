@@ -54,7 +54,7 @@ Open [http://localhost:8000](http://localhost:8000) in your browser.
 
 - **Email**: [rouxhana9894@gmail.com](mailto:rouxhana9894@gmail.com)
 - **GitHub**: [@rouxhana](https://github.com/rouxhana)
-- **LinkedIn**: [Rouxhana Firthous](https://linkedin.com/in/your-profile)
+- **LinkedIn**: [Rouxhana Firthous](https://www.linkedin.com/in/rouxhana-firthous-9197a0301)
 
 ---
 *© 2024–2026 Rouxhana Firthous. Built for Product Leadership.*
