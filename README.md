@@ -22,6 +22,7 @@ An editorial, zine-inspired personal portfolio designed for **Rouxhana Firthous*
   - [**Portfolio & Casebook**](https://github.com/rouxhana/Portfolio): This live editorial showcase.
 - **Resume**: [Interactive Resume](https://rouxhana.github.io/Portfolio/resume.html) | [Download PDF](https://rouxhana.github.io/Portfolio/Rouxhana_Firthous_Resume.pdf)
 - **Professional Experience & Track Record**: Highlighting roles as Student Associate Product Manager (Technical Vertical Lead) and Product Analyst (AapThozhi), with measurable impact across Agile sprints, user feedback loops, and product KPIs.
+- **Agentic AI & Cloud Foundations**: College-accredited coursework in Agentic AI Systems (autonomous agents, multi-agent coordination, tool-augmented LLMs) and AWS Cloud Basics (EC2, S3).
 
 ---
 
