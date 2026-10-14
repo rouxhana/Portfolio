@@ -1,64 +1,60 @@
-# Rouxhana Firthous | Personal Portfolio
+# Rouxhana Firthous | Product Management & Data Analyst Portfolio
 
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)](https://aws.amazon.com/)
+[![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-222222?style=for-the-badge&logo=githubpages&logoColor=white)](https://rouxhana.github.io/Portfolio/)
 
-A responsive, modern, and tech-themed personal portfolio website built to showcase my skills, projects, and learning journey as a BTech IT student and aspiring software developer.
+Live Site: **[https://rouxhana.github.io/Portfolio/](https://rouxhana.github.io/Portfolio/)**
 
-## 🚀 Overview
+An editorial, zine-inspired personal portfolio designed for **Rouxhana Firthous**, Final Year BTech IT Student and Aspiring Product Manager / Data Analyst. Styled with a custom Bordo, Pine Green, and Warm Cream palette with expressive typography (Syne, Instrument Serif, Space Grotesk, Space Mono, and Plus Jakarta Sans).
 
-This project is a clean and modular portfolio designed with a professional dark aesthetic. It highlights my interest in frontend development and cloud technologies, specifically AWS.
+---
 
-### Key Features
-- **Modern Design**: Sleek dark mode with glassmorphism effects and smooth transitions.
-- **Responsive Layout**: Fully optimized for mobile, tablet, and desktop screens.
-- **Dynamic Interactions**: Subtle scroll animations and interactive elements for better engagement.
-- **Modular Code**: Structured HTML, CSS, and JavaScript for easy maintenance.
+## 🚀 Key Highlights
 
-## 🛠️ Technologies Used
+- **Product & Data Positioning**: Tailored for Associate Product Manager (APM) and Product Analyst roles.
+- **Competencies Breakdown**: Zine/menu-style breakdown of Data Analysis (SQL, Power BI, Python, Funnels), Product Execution (Agile/Scrum, PRDs, User Stories), and Tech Stacks.
+- **Integrated GitHub Projects**:
+  - [**AapThozhi**](https://github.com/rouxhana/aapthozhi): Voice-first, icon-first multilingual assistance companion helping women access government welfare schemes across 14 languages.
+  - [**AgriHelp (Agri-Guide-Mini)**](https://github.com/rouxhana/Agri-Guide-Mini): Accessible farming guidance web app for smallholder farmers in Tamil Nadu (<1 acre).
+  - [**Portfolio & Casebook**](https://github.com/rouxhana/Portfolio): This live editorial showcase.
+- **Leadership & Track Record**: Highlighting role as Learning Vertical Chair, academic event coordination, and certifications.
 
-- **Frontend**: HTML5, CSS3 (Vanilla), JavaScript (Vanilla)
-- **Typography**: [Inter](https://fonts.google.com/specimen/Inter) and [Outfit](https://fonts.google.com/specimen/Outfit) via Google Fonts
-- **Icons**: Custom SVG icons for a crisp look.
-- **Development Server**: Python-based local server (`server.py`).
+---
 
-## 📁 Project Structure
+## 🛠️ Color Palette & Typography
 
-```text
-portfolio/
-├── index.html    # Main structure and content
-├── style.css     # Design system and styling
-├── script.js      # Interactive components and animations
-├── server.py      # Local development server script
-└── README.md      # Project documentation
-```
+- **Bordo**: `#6C151E`
+- **Pine Green**: `#0F3D3A`
+- **Warm Cream**: `#F5DABF`
+- **Linen Canvas**: `#EBE3D5`
+- **Fonts**: [Syne](https://fonts.google.com/specimen/Syne), [Instrument Serif](https://fonts.google.com/specimen/Instrument+Serif), [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk), [Space Mono](https://fonts.google.com/specimen/Space+Mono), [Plus Jakarta Sans](https://fonts.google.com/specimen/Plus+Jakarta+Sans)
+
+---
 
 ## 💻 Local Development
 
-To run this project locally, you can use the provided Python server:
+```bash
+# Clone the repository
+git clone https://github.com/rouxhana/Portfolio.git
 
-1. Ensure you have Python installed.
-2. Open a terminal in the project directory.
-3. Run the following command:
-   ```bash
-   python server.py
-   ```
-4. Open your browser and navigate to `http://localhost:8000`.
+# Navigate to project directory
+cd Portfolio
 
-## 📈 Learning Journey
+# Start the local server
+python server.py
+```
+Open [http://localhost:8000](http://localhost:8000) in your browser.
 
-- **Programming**: Building fundamentals in Java.
-- **Web Development**: Mastering HTML, CSS, and JS.
-- **Cloud**: AWS Basics course completed.
-- **Tools**: Learning version control with Git.
+---
 
-## 📬 Contact Me
+## 📬 Contact
 
 - **Email**: [rouxhana9894@gmail.com](mailto:rouxhana9894@gmail.com)
 - **GitHub**: [@rouxhana](https://github.com/rouxhana)
-- **LinkedIn**: [Your Profile](https://linkedin.com/in/your-profile)
+- **LinkedIn**: [Rouxhana Firthous](https://linkedin.com/in/your-profile)
 
 ---
-*Built with ❤️ by Rouxhana Firthous.*
+*© 2024–2026 Rouxhana Firthous. Built for Product Leadership.*

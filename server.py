@@ -18,7 +18,7 @@ def start_server():
         print("Press Ctrl+C to stop the server.")
         
         # Automatically open the browser
-        # webbrowser.open(url) 
+        webbrowser.open(url)
         
         try:
             httpd.serve_forever()

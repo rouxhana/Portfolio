@@ -150,9 +150,16 @@ nav {
     margin-bottom: 2.5rem;
 }
 
+.hero-btns {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 .hero-btns .btn {
     display: inline-block;
-    padding: 1rem 2.5rem;
+    padding: 0.9rem 2.2rem;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
@@ -168,6 +175,20 @@ nav {
 .btn.primary:hover {
     transform: translateY(-3px);
     box-shadow: 0 0 30px rgba(0, 242, 255, 0.5);
+}
+
+.btn.outline {
+    background: rgba(255, 255, 255, 0.04);
+    color: #fff;
+    border: 1px solid var(--glass-border);
+}
+
+.btn.outline:hover {
+    background: rgba(0, 242, 255, 0.08);
+    border-color: var(--primary);
+    color: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
 }
 
 .hero-bg {
@@ -215,6 +236,35 @@ nav {
     padding: 2rem;
     border-radius: 20px;
     transition: var(--transition);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.skill-category.highlight {
+    border-color: rgba(0, 242, 255, 0.35);
+    background: linear-gradient(145deg, rgba(0, 242, 255, 0.05) 0%, rgba(188, 19, 254, 0.03) 100%);
+    box-shadow: 0 10px 30px -15px rgba(0, 242, 255, 0.2);
+}
+
+.skill-category.highlight:hover {
+    border-color: var(--primary);
+    box-shadow: 0 15px 35px -10px rgba(0, 242, 255, 0.35);
+    transform: translateY(-4px);
+}
+
+.badge-top {
+    align-self: flex-start;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--primary);
+    background: rgba(0, 242, 255, 0.12);
+    border: 1px solid rgba(0, 242, 255, 0.3);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
 }
 
 .skill-category:hover {
@@ -259,53 +309,132 @@ nav {
 .project-card {
     background: var(--glass);
     border: 1px solid var(--glass-border);
-    padding: 2.5rem;
+    padding: 2.2rem;
     border-radius: 24px;
     position: relative;
     transition: var(--transition);
+    display: flex;
+    flex-direction: column;
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--secondary);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    transform: translateY(-8px);
+    border-color: var(--primary);
+    box-shadow: 0 15px 40px rgba(0, 242, 255, 0.15);
 }
 
 .project-status {
     position: absolute;
     top: 1.5rem;
     right: 1.5rem;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 700;
     text-transform: uppercase;
+    letter-spacing: 0.5px;
     padding: 0.3rem 0.8rem;
     border-radius: 50px;
-    background: rgba(188, 19, 254, 0.1);
+    background: rgba(188, 19, 254, 0.12);
     color: var(--secondary);
     border: 1px solid rgba(188, 19, 254, 0.3);
 }
 
 .project-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
+    font-size: 1.45rem;
+    margin-bottom: 0.8rem;
+    margin-top: 1.2rem;
+    color: #fff;
 }
 
 .project-card p {
     color: var(--text-muted);
-    margin-bottom: 2rem;
-    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    flex-grow: 1;
 }
 
 .project-tech {
     display: flex;
-    gap: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .project-tech span {
-    font-size: 0.8rem;
+    font-size: 0.76rem;
     color: var(--primary);
+    background: rgba(0, 242, 255, 0.08);
+    border: 1px solid rgba(0, 242, 255, 0.2);
+    padding: 0.25rem 0.7rem;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.project-links {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--glass-border);
+}
+
+.project-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    font-size: 0.85rem;
     font-weight: 600;
+    padding: 0.55rem 1.1rem;
+    border-radius: 50px;
+    transition: var(--transition);
+}
+
+.project-btn.github {
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+    border: 1px solid var(--glass-border);
+}
+
+.project-btn.github:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+.project-btn.github svg {
+    width: 16px;
+    height: 16px;
+}
+
+.more-projects-cta {
+    text-align: center;
+    margin-top: 3.5rem;
+}
+
+.more-projects-cta a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--primary);
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    border: 1px solid rgba(0, 242, 255, 0.3);
+    background: rgba(0, 242, 255, 0.05);
+    transition: var(--transition);
+}
+
+.more-projects-cta a:hover {
+    background: var(--primary);
+    color: #000;
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(0, 242, 255, 0.4);
 }
 
 /* Experience Section */
@@ -345,11 +474,27 @@ nav {
     box-shadow: 0 0 10px var(--primary);
 }
 
+.timeline-date {
+    display: inline-block;
+    font-size: 0.8rem;
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
 .timeline-content {
     background: var(--glass);
     padding: 1.5rem 2rem;
     border-radius: 15px;
     border: 1px solid var(--glass-border);
+    transition: var(--transition);
+}
+
+.timeline-content:hover {
+    border-color: var(--primary);
+    transform: translateX(5px);
 }
 
 .timeline-content h3 {
