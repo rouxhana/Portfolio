@@ -8,7 +8,7 @@
 
 Live Site: **[https://rouxhana.github.io/Portfolio/](https://rouxhana.github.io/Portfolio/)**
 
-An editorial, zine-inspired personal portfolio designed for **Rouxhana Firthous**, Final Year BTech IT Student and Aspiring Product Manager / Data Analyst. Styled with a custom Bordo, Pine Green, and Warm Cream palette with expressive typography (Syne, Instrument Serif, Space Grotesk, Space Mono, and Plus Jakarta Sans).
+An editorial, zine-inspired personal portfolio designed for **Rouxhana Firthous**, BTech IT (Class of 2027) and Aspiring Product Manager / Data Analyst. Styled with a custom Bordo, Pine Green, and Warm Cream palette with expressive typography (Syne, Instrument Serif, Space Grotesk, Space Mono, and Plus Jakarta Sans).
 
 ---
 
@@ -57,4 +57,4 @@ Open [http://localhost:8000](http://localhost:8000) in your browser.
 - **LinkedIn**: [Rouxhana Firthous](https://www.linkedin.com/in/rouxhana-firthous-9197a0301)
 
 ---
-*© 2024–2026 Rouxhana Firthous. Built for Product Leadership.*
+*© 2024–2027 Rouxhana Firthous. Built for Product Leadership.*
