@@ -232,17 +232,28 @@
       background: var(--primary);
     }
 
-    /* Summary Text */
-    .summary-text {
-      font-size: 12.5px;
+    /* Summary & Skills Bullets */
+    .summary-bullets, .skills-bullets {
+      list-style-type: square;
+      padding-left: 18px;
+      margin-top: 4px;
+      font-size: 12px;
       color: #374151;
-      line-height: 1.6;
+      line-height: 1.5;
     }
 
-    /* Skills Grid */
+    .summary-bullets li, .skills-bullets li {
+      margin-bottom: 5px;
+    }
+
+    .summary-bullets strong, .skills-bullets strong {
+      color: var(--secondary);
+      font-weight: 700;
+    }
+
     .skills-category {
       margin-bottom: 10px;
-      font-size: 12.5px;
+      font-size: 12px;
       line-height: 1.5;
     }
 
@@ -494,29 +505,22 @@
     <!-- PROFESSIONAL SUMMARY -->
     <section class="section">
       <h2 class="section-title">Professional Summary</h2>
-      <p class="summary-text">
-        Undergraduate in Information Technology (Class of 2027) with an analytical mindset, software engineering foundation, and dedicated focus on Product Management and Data Analytics. Proven track record driving the end-to-end <strong>product lifecycle</strong>, defining data-backed <strong>product roadmaps</strong>, and steering <strong>cross-functional teams</strong> across Agile sprints. Experienced in conducting empirical <strong>market research</strong>, synthesizing <strong>user feedback</strong>, and instrumenting product <strong>KPIs</strong> via SQL and Python. Passionate about aligning <strong>stakeholder management</strong> with user-centric engineering and cutting-edge <strong>Agentic AI</strong> tools to ship high-impact digital solutions.
-      </p>
+      <ul class="summary-bullets">
+        <li><strong>Profile &amp; Engineering Foundation:</strong> B.Tech in Information Technology undergraduate (Class of 2027) combining strong computer science foundations with dedicated focus on Product Management and Data Analytics.</li>
+        <li><strong>Product Lifecycle &amp; Roadmaps:</strong> Proven track record steering the end-to-end <strong>product lifecycle</strong>, defining data-backed <strong>product roadmaps</strong>, authoring PRDs, and directing <strong>cross-functional teams</strong> across Agile sprints.</li>
+        <li><strong>User Research &amp; Analytics:</strong> Skilled in synthesizing qualitative <strong>user feedback</strong>, conducting empirical <strong>market research</strong>, instrumenting product <strong>KPIs</strong> via SQL and Python, and aligning <strong>stakeholder management</strong> with customer outcomes.</li>
+        <li><strong>Modern Tooling:</strong> Passionate about leveraging cutting-edge <strong>Agentic AI</strong> tools and cloud architectures to accelerate product delivery and user value.</li>
+      </ul>
     </section>
 
-    <!-- CORE COMPETENCIES -->
+    <!-- SKILLS -->
     <section class="section">
-      <h2 class="section-title">Core Competencies &amp; Technical Skills</h2>
-      
-      <div class="skills-category">
-        <strong>Product Strategy &amp; Execution:</strong>
-        <span>Product Roadmaps, PRD Authoring, Agile &amp; Scrum Methodologies, Stakeholder Management, User Stories &amp; Acceptance Criteria, Feature Prioritization (RICE, MoSCoW), User Journey Mapping, User Feedback Loops, Product Lifecycle Management (PLM), Market Research.</span>
-      </div>
-      
-      <div class="skills-category">
-        <strong>Data Analytics &amp; Product KPIs:</strong>
-        <span>SQL (Complex Joins, Aggregations, Data Extraction), Power BI &amp; Tableau Dashboards, Product Health &amp; Funnel KPIs, Retention &amp; Cohort Tracking, Excel / Google Sheets Financial Modeling, Python (Pandas, NumPy, Exploratory Data Analysis), A/B Testing Principles.</span>
-      </div>
-      
-      <div class="skills-category">
-        <strong>Tech Stack &amp; Tools:</strong>
-        <span>Agentic AI &amp; LLM Systems (Autonomous Agents, Tool Calling), AWS Cloud Foundations (EC2, S3), HTML5, CSS3, JavaScript, Java Programming, React fundamentals, Git &amp; GitHub Workflows, JIRA &amp; Confluence Workflows, High-Speed Typewriting.</span>
-      </div>
+      <h2 class="section-title">Skills</h2>
+      <ul class="skills-bullets">
+        <li><strong>Product Management &amp; Strategy:</strong> Product Roadmaps, PRD Authoring, Agile &amp; Scrum Methodologies, Stakeholder Management, User Stories &amp; Acceptance Criteria, Feature Prioritization (RICE, MoSCoW), User Journey Mapping, User Feedback Loops, Product Lifecycle Management (PLM), Market Research.</li>
+        <li><strong>Data Analytics &amp; Product KPIs:</strong> SQL (Complex Joins, Aggregations, Funnel Analysis), Power BI &amp; Tableau Dashboards, Product Health &amp; Retention KPIs, Cohort Tracking, Excel / Google Sheets Financial Modeling, Python (Pandas, NumPy, Exploratory Data Analysis), A/B Testing Principles.</li>
+        <li><strong>AI, Cloud &amp; Engineering:</strong> Agentic AI &amp; Autonomous LLM Systems (Autonomous Agents, Tool Calling, Prompt Orchestration), AWS Cloud Foundations (EC2, S3), HTML5, CSS3, JavaScript, Java Programming, React Fundamentals, Git &amp; GitHub Workflows, JIRA &amp; Confluence Workflows, High-Speed Typewriting.</li>
+      </ul>
     </section>
 
     <!-- PROFESSIONAL EXPERIENCE -->
@@ -533,9 +537,10 @@
         </div>
         <div class="item-sub">Department Innovation &amp; Learning Vertical • Tamil Nadu, India</div>
         <ul class="project-bullets">
-          <li><strong>Product Roadmap &amp; Sprint Planning:</strong> Defined product roadmap and collaborated with stakeholders to prioritize features based on KPIs and user feedback; led sprint planning and coordinated cross-functional teams of 12+ student engineers, accelerating delivery velocity by 25%.</li>
-          <li><strong>Stakeholder Management &amp; Engagement KPIs:</strong> Spearheaded stakeholder management with faculty advisors; synthesized qualitative user feedback from 300+ students and instrumented product health KPIs that yielded a +38 Net Promoter Score (NPS) lift.</li>
-          <li><strong>Market Research &amp; PRD Authoring:</strong> Executed competitive market research across peer engineering curricula; authored 8+ comprehensive PRDs featuring acceptance criteria, user stories, and system flowcharts to standardize product lifecycles.</li>
+          <li><strong>Product Roadmap &amp; Sprints:</strong> Defined academic product roadmap and directed sprint planning across cross-functional teams of 12+ student engineers, accelerating feature delivery velocity by 25%.</li>
+          <li><strong>Stakeholder Management:</strong> Spearheaded ongoing stakeholder management with faculty mentors, aligning curriculum goals with student learning milestones.</li>
+          <li><strong>User Feedback &amp; KPIs:</strong> Synthesized qualitative user feedback from 300+ students and instrumented engagement KPIs, driving a +38 Net Promoter Score (NPS) lift.</li>
+          <li><strong>PRD Authoring:</strong> Executed competitive market research across peer programs; authored 8+ structured PRDs with acceptance criteria, user stories, and system flowcharts.</li>
         </ul>
       </div>
 
@@ -549,9 +554,10 @@
         </div>
         <div class="item-sub">CivicTech Open Source Team • Hybrid / Remote</div>
         <ul class="project-bullets">
-          <li><strong>Product Lifecycle Management:</strong> Managed the end-to-end product lifecycle from user discovery through prototype testing for a voice-first welfare navigator serving rural women across 14 Indian languages.</li>
-          <li><strong>Voice-First Navigation &amp; User Engagement:</strong> Increased user engagement by 34% through implementation of voice-first navigation in AapThozhi; conducted empathy-driven user feedback interviews with 40+ grassroots participants to eliminate drop-off bottlenecks.</li>
-          <li><strong>Data Analytics &amp; Funnel Optimization:</strong> Defined product roadmap milestones and tracked scheme discovery drop-off funnels via SQL and Python; prioritized features using RICE to eliminate 3 verification hurdles, reducing application abandonment by 42%.</li>
+          <li><strong>Product Lifecycle Management:</strong> Managed the end-to-end product lifecycle from user discovery through prototype testing for a voice-first government welfare navigator across 14 Indian languages.</li>
+          <li><strong>Voice-First Navigation:</strong> Increased user engagement by 34% by integrating Web Speech API and accessible voice navigation for low-literacy audiences.</li>
+          <li><strong>User Research:</strong> Conducted empathy-driven user feedback interviews with 40+ grassroots participants to identify drop-off friction points.</li>
+          <li><strong>Funnel Optimization &amp; Prioritization:</strong> Tracked scheme discovery funnels via SQL and Python; applied RICE prioritization to eliminate 3 verification hurdles, reducing application form abandonment by 42%.</li>
         </ul>
       </div>
     </section>
