@@ -22,32 +22,58 @@
         clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
     }
 
-    .jagged-right-edge {
-        position: relative;
-    }
-    .jagged-right-edge::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: -10px;
-        width: 10px;
-        height: 100%;
-        background-size: 20px 20px;
-        background-image: linear-gradient(135deg, #0F3D3A 50%, transparent 50%),
-                          linear-gradient(45deg, #0F3D3A 50%, transparent 50%);
-        background-repeat: repeat-y;
-        z-index: 20;
+    /* Jagged edge applied cleanly on md+ screens to prevent mobile horizontal overflow */
+    @media (min-width: 768px) {
+        .md\:jagged-right-edge {
+            position: relative;
+        }
+        .md\:jagged-right-edge::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: -10px;
+            width: 10px;
+            height: 100%;
+            background-size: 20px 20px;
+            background-image: linear-gradient(135deg, #0F3D3A 50%, transparent 50%),
+                              linear-gradient(45deg, #0F3D3A 50%, transparent 50%);
+            background-repeat: repeat-y;
+            z-index: 20;
+        }
     }
 
     .menu-item {
         display: flex;
         align-items: baseline;
         justify-content: space-between;
+        gap: 6px;
+        min-width: 0;
     }
     .menu-dots {
-        flex: 1;
+        flex: 1 1 auto;
+        min-width: 8px;
         border-bottom: 2px dotted rgba(19, 26, 25, 0.25);
-        margin: 0 10px;
+        margin: 0 4px;
+    }
+
+    /* Mobile Navigation Drawer Animations */
+    #mobile-drawer {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transform-origin: top;
+    }
+    #mobile-drawer.closed {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transform: scaleY(0.95);
+        pointer-events: none;
+    }
+    #mobile-drawer.open {
+        max-height: 380px;
+        opacity: 1;
+        overflow: visible;
+        transform: scaleY(1);
+        pointer-events: auto;
     }
 
     /* Animation Classes */
@@ -127,24 +153,24 @@
   </script>
 </head>
 
-<body class="flex justify-center min-h-screen py-4 md:py-8 bg-brand-canvas font-body text-brand-black overflow-x-hidden selection:bg-brand-bordo selection:text-brand-cream">
+<body class="flex justify-center min-h-screen py-0 sm:py-4 md:py-8 bg-brand-canvas font-body text-brand-black overflow-x-hidden selection:bg-brand-bordo selection:text-brand-cream">
 
-  <!-- Main Container Frame -->
-  <div class="w-full max-w-4xl bg-brand-paper shadow-[0px_0px_50px_rgba(20,28,27,0.25)] relative mx-auto flex flex-col border border-brand-black/10">
+  <!-- Main Container Frame: Fluid & responsive across mobile, tablet, and widescreen desktop -->
+  <div class="w-full max-w-5xl xl:max-w-6xl bg-brand-paper shadow-none sm:shadow-[0px_0px_50px_rgba(20,28,27,0.25)] relative mx-auto flex flex-col sm:border border-brand-black/10 overflow-hidden">
     
     <!-- HEADER SECTION -->
-    <header class="pt-20 pb-28 relative z-20 overflow-hidden bg-brand-paper">
+    <header class="pt-6 sm:pt-10 md:pt-14 pb-20 sm:pb-24 md:pb-28 relative z-20 overflow-hidden bg-brand-paper">
         <!-- Top Decorative Color Bar with Palette -->
-        <div class="absolute top-0 left-0 w-full h-3 z-30 flex shadow-sm">
+        <div class="w-full h-2.5 sm:h-3 flex shadow-sm mb-6 sm:mb-8">
             <div class="h-full flex-1 bg-brand-bordo"></div>
             <div class="h-full flex-1 bg-brand-green"></div>
             <div class="h-full flex-1 bg-brand-cream"></div>
             <div class="h-full flex-1 bg-brand-terracotta"></div>
         </div>
 
-        <!-- Background Stencils & Spinners -->
-        <div class="absolute top-0 left-0 w-full h-full z-0 opacity-15 pointer-events-none select-none">
-            <div class="absolute top-8 left-8 w-36 h-36 border-2 border-dashed border-brand-bordo rounded-full flex items-center justify-center animate-spin-slow">
+        <!-- Background Stencils & Spinners: Positioned safely to prevent text collision -->
+        <div class="absolute inset-0 z-0 opacity-10 pointer-events-none select-none overflow-hidden">
+            <div class="absolute top-16 -left-8 sm:left-4 md:left-8 w-28 sm:w-36 h-28 sm:h-36 border-2 border-dashed border-brand-bordo rounded-full flex items-center justify-center animate-spin-slow">
                 <svg viewBox="0 0 100 100" class="w-full h-full overflow-visible">
                     <path id="curve" d="M 25, 50 a 25,25 0 1,1 50,0 a 25,25 0 1,1 -50,0" fill="transparent"></path>
                     <text class="text-[9px] font-mono font-bold fill-brand-bordo uppercase tracking-widest">
@@ -152,41 +178,77 @@
                     </text>
                 </svg>
             </div>
-            <div class="absolute bottom-6 right-8 transform rotate-6">
-                 <div class="w-44 h-12 border-2 border-brand-green flex items-center justify-between px-3 bg-brand-cream/30">
+            <!-- Barcode placed in bottom-left so it never clashes with bottom-right social links -->
+            <div class="hidden sm:block absolute bottom-6 left-6 md:left-10 transform -rotate-3">
+                 <div class="w-40 sm:w-44 h-11 border-2 border-brand-green flex items-center justify-between px-3 bg-brand-cream/30">
                     <div class="h-full w-1 bg-brand-green"></div>
                     <div class="h-full w-2.5 bg-brand-green"></div>
                     <div class="h-full w-0.5 bg-brand-green"></div>
                     <div class="h-full w-3 bg-brand-green"></div>
                     <div class="h-full w-1 bg-brand-green"></div>
-                    <span class="text-[11px] font-mono font-bold text-brand-green tracking-widest">APM-2027</span>
+                    <span class="text-[10px] sm:text-[11px] font-mono font-bold text-brand-green tracking-widest">APM-2027</span>
                  </div>
             </div>
         </div>
 
-        <!-- Top Nav -->
-        <div class="header-animate-in relative z-20 flex justify-between items-start px-6 md:px-10 text-[11px] font-heading font-bold tracking-widest text-brand-bordo uppercase">
-            <div class="leading-tight hover:text-brand-black transition-colors cursor-default border-l-2 border-brand-bordo pl-2.5">
-                Available for<br>
-                <span class="text-brand-green">APM &amp; Product Analyst Roles</span>
-            </div>
-            <div class="hidden sm:flex gap-6 md:gap-8">
-                <a href="#about" class="hover:text-brand-black hover:scale-105 transition-all inline-block">About</a>
-                <a href="#services" class="hover:text-brand-black hover:scale-105 transition-all inline-block">Competencies</a>
-                <a href="#projects" class="hover:text-brand-black hover:scale-105 transition-all inline-block">Projects</a>
-                <a href="#leadership" class="hover:text-brand-black hover:scale-105 transition-all inline-block">Leadership</a>
-                <a href="#contact" class="hover:text-brand-black hover:scale-105 transition-all inline-block">Contact</a>
-            </div>
+        <!-- Top Nav Bar -->
+        <div class="header-animate-in relative z-30 flex justify-between items-center px-4 sm:px-6 md:px-10 text-[11px] font-heading font-bold tracking-widest text-brand-bordo uppercase">
+            <!-- Left: Status Badge -->
             <div class="flex items-center gap-2">
-                <a href="https://github.com/rouxhana" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 bg-brand-bordo text-brand-cream hover:bg-brand-black transition-colors rounded-sm font-mono text-[10px]">GITHUB ↗</a>
-                <a href="https://www.linkedin.com/in/rouxhana-firthous-9197a0301" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 bg-brand-green text-brand-cream hover:bg-brand-black transition-colors rounded-sm font-mono text-[10px]">LINKEDIN ↗</a>
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <div class="leading-tight hover:text-brand-black transition-colors cursor-default border-l-2 border-brand-bordo pl-2 sm:pl-2.5">
+                    <span class="block text-[9px] sm:text-[10px] font-mono text-brand-bordo font-bold">CLASS OF 2027</span>
+                    <span class="text-brand-green text-[10px] sm:text-[11px] font-semibold">APM &amp; Product Analyst</span>
+                </div>
+            </div>
+
+            <!-- Center: Desktop Navigation Links (Visible on lg and above) -->
+            <nav class="hidden lg:flex gap-6 xl:gap-8 items-center text-xs font-heading font-bold tracking-widest text-brand-bordo uppercase">
+                <a href="#about" class="hover:text-brand-black hover:scale-105 transition-all inline-block py-1">About</a>
+                <a href="#services" class="hover:text-brand-black hover:scale-105 transition-all inline-block py-1">Competencies</a>
+                <a href="#projects" class="hover:text-brand-black hover:scale-105 transition-all inline-block py-1">Projects</a>
+                <a href="#leadership" class="hover:text-brand-black hover:scale-105 transition-all inline-block py-1">Leadership</a>
+                <a href="#contact" class="hover:text-brand-black hover:scale-105 transition-all inline-block py-1">Contact</a>
+            </nav>
+
+            <!-- Right: Action Buttons & Mobile Hamburger -->
+            <div class="flex items-center gap-2">
+                <a href="https://github.com/rouxhana" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 bg-brand-bordo text-brand-cream hover:bg-brand-black transition-colors rounded-sm font-mono text-[10px] min-h-[36px] flex items-center justify-center shadow-xs">GITHUB ↗</a>
+                <a href="https://www.linkedin.com/in/rouxhana-firthous-9197a0301" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 bg-brand-green text-brand-cream hover:bg-brand-black transition-colors rounded-sm font-mono text-[10px] min-h-[36px] flex items-center justify-center shadow-xs">LINKEDIN ↗</a>
+                
+                <!-- Mobile / Tablet Hamburger Toggle (Visible below lg) -->
+                <button id="mobile-menu-btn" class="lg:hidden p-2 text-brand-bordo hover:bg-brand-cream/60 transition-colors border border-brand-bordo/40 rounded flex items-center justify-center min-w-[36px] min-h-[36px] bg-brand-paper" aria-label="Toggle navigation menu">
+                    <svg id="menu-icon-open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    <svg id="menu-icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Dropdown Drawer -->
+        <div id="mobile-drawer" class="closed lg:hidden relative z-20 bg-brand-bordo text-brand-cream border-y-2 border-brand-black mx-3 sm:mx-6 mt-3 shadow-lg">
+            <div class="p-3 sm:p-4 grid grid-cols-2 gap-2 text-xs font-heading font-bold uppercase tracking-wider">
+                <a href="#about" class="mobile-nav-link p-2.5 bg-brand-black/25 hover:bg-brand-cream hover:text-brand-bordo transition-colors flex items-center justify-between rounded-xs">
+                    <span>01 // About</span><span>→</span>
+                </a>
+                <a href="#services" class="mobile-nav-link p-2.5 bg-brand-black/25 hover:bg-brand-cream hover:text-brand-bordo transition-colors flex items-center justify-between rounded-xs">
+                    <span>02 // Skills</span><span>→</span>
+                </a>
+                <a href="#projects" class="mobile-nav-link p-2.5 bg-brand-black/25 hover:bg-brand-cream hover:text-brand-bordo transition-colors flex items-center justify-between rounded-xs">
+                    <span>03 // Projects</span><span>→</span>
+                </a>
+                <a href="#leadership" class="mobile-nav-link p-2.5 bg-brand-black/25 hover:bg-brand-cream hover:text-brand-bordo transition-colors flex items-center justify-between rounded-xs">
+                    <span>04 // Leadership</span><span>→</span>
+                </a>
+                <a href="#contact" class="mobile-nav-link col-span-2 p-2.5 bg-brand-cream text-brand-bordo hover:bg-brand-paper transition-colors flex items-center justify-between font-mono text-[11px] font-bold rounded-xs">
+                    <span>05 // CONTACT &amp; RESUME QR CODE</span><span>↓</span>
+                </a>
             </div>
         </div>
 
         <!-- Main Logo / Hero Diamond Area -->
-        <div class="flex justify-center mt-12 mb-16 relative px-4">
+        <div class="flex justify-center mt-10 md:mt-12 mb-12 sm:mb-16 relative px-3 sm:px-4">
             <!-- The Diamond / Editorial Badge -->
-            <div class="logo-animate-in relative w-full max-w-lg border-2 border-brand-bordo transform scale-100 hover:scale-[1.02] transition-transform duration-500 cursor-default bg-brand-paper z-10 shadow-[10px_10px_0px_#6C151E]">
+            <div class="logo-animate-in relative w-full max-w-sm sm:max-w-lg md:max-w-xl lg:max-w-2xl border-2 border-brand-bordo transform scale-100 hover:scale-[1.01] transition-transform duration-500 cursor-default bg-brand-paper z-10 shadow-[6px_6px_0px_#6C151E] sm:shadow-[10px_10px_0px_#6C151E]">
                 <!-- Decorative Corners -->
                 <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-brand-bordo"></div>
                 <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-brand-bordo"></div>
@@ -194,34 +256,33 @@
                 <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-brand-bordo"></div>
 
                 <!-- Text Inside -->
-                <div class="relative p-6 md:p-8 text-center flex flex-col items-center">
-                    <!-- Diamond Outline Simplified for bigger impact -->
+                <div class="relative p-5 sm:p-7 md:p-9 text-center flex flex-col items-center">
                     <div class="absolute inset-0 border border-brand-bordo rotate-1 opacity-15 pointer-events-none"></div>
                     <div class="absolute inset-0 border border-brand-green -rotate-1 opacity-15 pointer-events-none"></div>
                     
-                    <span class="text-[10px] md:text-[11px] uppercase font-mono font-bold text-brand-cream tracking-[0.4em] mb-3 bg-brand-bordo px-3 py-0.5">
+                    <span class="text-[9px] sm:text-[10px] md:text-[11px] uppercase font-mono font-bold text-brand-cream tracking-[0.3em] sm:tracking-[0.4em] mb-2 sm:mb-3 bg-brand-bordo px-2.5 sm:px-3 py-0.5">
                         Portfolio of
                     </span>
-                    <h1 class="font-display font-black text-4xl sm:text-5xl md:text-6xl text-brand-bordo tracking-tight leading-none uppercase">
+                    <h1 class="font-display font-black text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-brand-bordo tracking-tight leading-none uppercase">
                         Rouxhana<br><span class="text-brand-green">Firthous</span>
                     </h1>
-                    <div class="font-heading font-semibold text-sm sm:text-base text-brand-black tracking-wide mt-3 flex items-center gap-2 flex-wrap justify-center">
-                        <span>BTech IT (Class of 2027)</span>
-                        <span class="text-brand-terracotta">•</span>
+                    <div class="font-heading font-semibold text-xs sm:text-sm md:text-base text-brand-black tracking-wide mt-3 flex items-center gap-1.5 sm:gap-2 flex-wrap justify-center">
+                        <span class="bg-brand-canvas px-2 py-0.5 rounded-sm">BTech IT (Class of 2027)</span>
+                        <span class="text-brand-terracotta hidden sm:inline">•</span>
                         <span class="text-brand-bordo font-bold">Aspiring Product Manager</span>
-                        <span class="text-brand-terracotta">•</span>
+                        <span class="text-brand-terracotta hidden sm:inline">•</span>
                         <span class="text-brand-green">Data Analyst</span>
                     </div>
 
-                    <p class="mt-4 text-xs md:text-sm text-brand-black/75 max-w-md font-body leading-relaxed">
+                    <p class="mt-3 sm:mt-4 text-xs sm:text-sm text-brand-black/75 max-w-md md:max-w-lg font-body leading-relaxed mx-auto">
                         Bridging engineering foundations, data-backed insights, and cross-functional leadership to turn ambiguous problems into ship-ready digital products.
                     </p>
 
-                    <div class="mt-6 flex gap-3 flex-wrap justify-center">
-                        <a href="#projects" class="px-5 py-2.5 bg-brand-bordo text-brand-cream font-heading text-xs font-bold uppercase tracking-wider shadow-sm hover:bg-brand-black transition-all">
+                    <div class="mt-5 sm:mt-6 flex flex-col sm:flex-row gap-2.5 sm:gap-3 w-full sm:w-auto justify-center">
+                        <a href="#projects" class="px-5 py-2.5 sm:py-3 bg-brand-bordo text-brand-cream font-heading text-xs font-bold uppercase tracking-wider shadow-sm hover:bg-brand-black transition-all min-h-[44px] flex items-center justify-center">
                             Explore Works ↓
                         </a>
-                        <a href="#contact" class="px-5 py-2.5 border-2 border-brand-black text-brand-black font-heading text-xs font-bold uppercase tracking-wider hover:bg-brand-black hover:text-brand-cream transition-all">
+                        <a href="#contact" class="px-5 py-2.5 sm:py-3 border-2 border-brand-black text-brand-black font-heading text-xs font-bold uppercase tracking-wider hover:bg-brand-black hover:text-brand-cream transition-all min-h-[44px] flex items-center justify-center">
                             Get In Touch
                         </a>
                     </div>
@@ -230,14 +291,14 @@
         </div>
 
         <!-- Social Icons (Floating Badge) -->
-        <div class="header-animate-in absolute bottom-4 right-6 md:right-10 flex gap-2.5">
-            <a href="https://www.linkedin.com/in/rouxhana-firthous-9197a0301" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="w-7 h-7 bg-brand-green rotate-45 flex items-center justify-center text-brand-cream text-[11px] hover:bg-brand-black transition-colors duration-300 group shadow-sm">
+        <div class="header-animate-in absolute bottom-4 right-4 sm:right-6 md:right-10 flex gap-2 sm:gap-2.5 z-20">
+            <a href="https://www.linkedin.com/in/rouxhana-firthous-9197a0301" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="w-8 h-8 sm:w-7 sm:h-7 bg-brand-green rotate-45 flex items-center justify-center text-brand-cream text-[11px] hover:bg-brand-black transition-colors duration-300 group shadow-sm">
                 <span class="-rotate-45 font-bold font-mono group-hover:rotate-0 transition-transform duration-300">in</span>
             </a>
-            <a href="https://github.com/rouxhana" target="_blank" rel="noopener noreferrer" title="GitHub" class="w-7 h-7 bg-brand-bordo rotate-45 flex items-center justify-center text-brand-cream text-[11px] hover:bg-brand-black transition-colors duration-300 group shadow-sm">
+            <a href="https://github.com/rouxhana" target="_blank" rel="noopener noreferrer" title="GitHub" class="w-8 h-8 sm:w-7 sm:h-7 bg-brand-bordo rotate-45 flex items-center justify-center text-brand-cream text-[11px] hover:bg-brand-black transition-colors duration-300 group shadow-sm">
                 <span class="-rotate-45 font-bold font-mono group-hover:rotate-0 transition-transform duration-300">gh</span>
             </a>
-            <a href="mailto:rouxhana9894@gmail.com" title="Email" class="w-7 h-7 bg-brand-terracotta rotate-45 flex items-center justify-center text-brand-cream text-[11px] hover:bg-brand-black transition-colors duration-300 group shadow-sm">
+            <a href="mailto:rouxhana9894@gmail.com" title="Email" class="w-8 h-8 sm:w-7 sm:h-7 bg-brand-terracotta rotate-45 flex items-center justify-center text-brand-cream text-[11px] hover:bg-brand-black transition-colors duration-300 group shadow-sm">
                 <span class="-rotate-45 font-bold font-mono group-hover:rotate-0 transition-transform duration-300">@</span>
             </a>
         </div>
@@ -246,10 +307,10 @@
     <main class="flex-grow">
 
         <!-- ABOUT SECTION (DEEP GREEN BACKDROP) -->
-        <section class="bg-brand-green text-brand-cream relative pb-16 pt-12 overflow-hidden border-t-2 border-brand-bordo" id="about">
-            <div class="flex flex-col md:flex-row h-full">
+        <section class="bg-brand-green text-brand-cream relative pb-16 pt-10 sm:pt-12 overflow-hidden border-t-2 border-brand-bordo" id="about">
+            <div class="flex flex-col lg:flex-row h-full">
                 <!-- Left: List / Story items -->
-                <div class="w-full md:w-3/5 p-8 md:p-12 space-y-8">
+                <div class="w-full lg:w-3/5 p-6 sm:p-8 md:p-12 space-y-6 sm:space-y-8">
                     <div class="border-b border-brand-cream/20 pb-4">
                         <span class="font-mono text-[10px] text-brand-cream/70 tracking-widest uppercase">01 // The Narrative</span>
                         <h2 class="font-display text-3xl md:text-4xl text-brand-cream mt-1 tracking-tight">About Me &amp; Vision</h2>
@@ -293,9 +354,9 @@
                 </div>
 
                 <!-- Right: Poster Visual -->
-                <div class="w-full md:w-2/5 p-8 flex items-center justify-center relative">
+                <div class="w-full lg:w-2/5 p-6 sm:p-8 flex items-center justify-center relative">
                      <!-- The Bordo Poster Card -->
-                     <div class="reveal-on-scroll delay-[300ms] w-56 aspect-[2/3] bg-brand-bordo transform rotate-3 shadow-[12px_12px_0px_rgba(20,28,27,0.5)] relative border-2 border-brand-cream group hover:rotate-0 hover:shadow-[16px_16px_0px_rgba(20,28,27,0.4)] hover:scale-105 transition-all duration-500 ease-out cursor-default">
+                     <div class="reveal-on-scroll delay-[300ms] w-48 sm:w-56 aspect-[2/3] bg-brand-bordo transform rotate-2 sm:rotate-3 shadow-[8px_8px_0px_rgba(20,28,27,0.5)] sm:shadow-[12px_12px_0px_rgba(20,28,27,0.5)] relative border-2 border-brand-cream group hover:rotate-0 hover:shadow-[16px_16px_0px_rgba(20,28,27,0.4)] hover:scale-105 transition-all duration-500 ease-out cursor-default">
                          <div class="absolute inset-2 border border-brand-cream/30 flex flex-col justify-between p-3">
                              <div class="flex justify-between items-start">
                                  <span class="vertical-text text-[9px] font-mono font-bold text-brand-cream/80 tracking-widest">PRODUCT MENTOR</span>
@@ -339,27 +400,27 @@
         <section class="flex flex-col md:flex-row min-h-[500px] relative bg-brand-paper overflow-hidden border-b-2 border-brand-black/10" id="services">
             
             <!-- Top Floating Stamp Elements -->
-            <div class="absolute -top-6 left-16 w-12 h-12 bg-brand-bordo rounded-full flex items-center justify-center z-20 border-4 border-brand-paper animate-spin-slow shadow-lg hover:scale-110 transition-transform cursor-pointer">
+            <div class="absolute -top-6 left-6 sm:left-14 w-12 h-12 bg-brand-bordo rounded-full flex items-center justify-center z-20 border-4 border-brand-paper animate-spin-slow shadow-lg hover:scale-110 transition-transform cursor-pointer">
                 <svg class="w-6 h-6 text-brand-cream" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
                 </svg>
             </div>
-            <div class="absolute -top-5 left-32 w-10 h-10 bg-brand-green rounded-full flex items-center justify-center z-20 border-4 border-brand-paper opacity-90 animate-bounce-slow">
+            <div class="absolute -top-5 left-20 sm:left-28 w-10 h-10 bg-brand-green rounded-full flex items-center justify-center z-20 border-4 border-brand-paper opacity-90 animate-bounce-slow">
                 <div class="w-full h-full border border-dashed border-white rounded-full flex items-center justify-center text-brand-cream text-[10px] font-mono font-bold">SQL</div>
             </div>
 
-            <!-- Green Sidebar with Jagged Edge -->
-            <div class="reveal-on-scroll w-full md:w-24 bg-brand-green relative flex md:flex-col items-center justify-between py-8 px-4 jagged-right-edge z-10 shrink-0">
-                <h2 class="font-display font-black text-3xl md:text-4xl text-brand-cream md:vertical-text tracking-tight uppercase hover:text-brand-cream transition-colors cursor-default">Competencies</h2>
-                <div class="hidden md:block text-[10px] font-mono font-bold text-brand-cream uppercase vertical-text tracking-widest mt-8 animate-pulse">Core PM Skills</div>
+            <!-- Green Sidebar with Responsive Jagged Edge -->
+            <div class="reveal-on-scroll w-full md:w-24 bg-brand-green relative flex md:flex-col items-center justify-between py-4 sm:py-5 md:py-8 px-5 md:px-4 md:jagged-right-edge z-10 shrink-0 border-b-2 md:border-b-0 border-brand-paper/20">
+                <h2 class="font-display font-black text-2xl sm:text-3xl md:text-4xl text-brand-cream md:vertical-text tracking-tight uppercase cursor-default">Competencies</h2>
+                <div class="text-[9px] sm:text-[10px] font-mono font-bold text-brand-cream uppercase md:vertical-text tracking-widest animate-pulse">Core PM Skills</div>
             </div>
 
             <!-- Content Area (Menu Style) -->
-            <div class="flex-1 p-8 md:p-12 relative bg-brand-paper">
+            <div class="flex-1 p-5 sm:p-8 md:p-12 relative bg-brand-paper">
                 <!-- Background Pattern -->
                 <div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: radial-gradient(#141C1B 1px, transparent 1px); background-size: 20px 20px;"></div>
 
-                <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+                <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-12 gap-y-8">
                     
                     <!-- Column 1 -->
                     <div class="reveal-on-scroll delay-[100ms]">
@@ -453,25 +514,25 @@
         </section>
 
         <!-- FEATURED PROJECTS (ZINE STENCIL GRID) -->
-        <section id="projects" class="bg-brand-paper pt-12 pb-16 relative">
+        <section id="projects" class="bg-brand-paper pt-10 sm:pt-12 pb-14 sm:pb-16 relative">
             <!-- Header -->
-            <div class="reveal-on-scroll text-center mb-10 relative px-4">
+            <div class="reveal-on-scroll text-center mb-8 sm:mb-10 relative px-4">
                 <span class="font-mono text-xs font-bold text-brand-bordo uppercase tracking-widest">02 // Selected Works</span>
-                <h2 class="font-display font-black text-4xl md:text-5xl text-brand-green uppercase tracking-tight mt-1" style="text-shadow: 2px 2px 0px #F5DABF;">
+                <h2 class="font-display font-black text-3xl sm:text-4xl md:text-5xl text-brand-green uppercase tracking-tight mt-1" style="text-shadow: 2px 2px 0px #F5DABF;">
                     Featured Projects
                 </h2>
-                <div class="absolute top-1/2 right-6 md:right-10 transform -translate-y-1/2 text-[10px] font-heading font-bold text-brand-bordo uppercase hidden md:block">
-                    <a href="https://github.com/rouxhana?tab=repositories" target="_blank" rel="noopener noreferrer" class="hover:text-brand-green transition-colors">
-                        View All On GitHub <span class="ml-1 inline-block">→</span>
+                <div class="md:absolute top-1/2 right-6 md:right-10 md:transform md:-translate-y-1/2 text-xs font-heading font-bold text-brand-bordo uppercase mt-2 md:mt-0">
+                    <a href="https://github.com/rouxhana?tab=repositories" target="_blank" rel="noopener noreferrer" class="hover:text-brand-green transition-colors inline-flex items-center gap-1">
+                        <span>View All On GitHub</span><span>→</span>
                     </a>
                 </div>
             </div>
 
-            <!-- Grid of 3 Real GitHub Projects -->
-            <div class="grid grid-cols-1 md:grid-cols-3 w-full border-t border-b border-brand-black/15">
+            <!-- Grid of 3 Real GitHub Projects: 1 col on mobile, 2 col on tablet, 3 col on desktop -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full border-t border-b border-brand-black/15">
                 
                 <!-- Project 1 (AapThozhi - Deep Green) -->
-                <div class="reveal-on-scroll delay-[100ms] group relative bg-brand-green text-brand-cream p-6 flex flex-col justify-between border-b md:border-b-0 md:border-r border-brand-paper/30 hover:brightness-105 transition duration-300 min-h-[380px]">
+                <div class="reveal-on-scroll delay-[100ms] group relative bg-brand-green text-brand-cream p-5 sm:p-6 lg:p-7 flex flex-col justify-between border-b md:border-b-0 md:border-r border-brand-paper/30 hover:brightness-105 transition duration-300 min-h-[360px] sm:min-h-[380px]">
                     <div>
                         <div class="flex justify-between items-start mb-4">
                             <span class="text-[9px] font-mono font-bold text-brand-cream bg-brand-bordo px-2.5 py-0.5 uppercase tracking-wider">
@@ -480,7 +541,7 @@
                             <div class="w-3 h-3 rounded-full bg-brand-cream"></div>
                         </div>
 
-                        <h3 class="font-display font-bold text-2xl text-brand-cream mb-2 group-hover:text-brand-cream transition-colors">
+                        <h3 class="font-display font-bold text-xl sm:text-2xl text-brand-cream mb-2 group-hover:text-brand-cream transition-colors">
                             AapThozhi
                         </h3>
                         <p class="text-xs text-brand-cream/85 font-body leading-relaxed mb-4">
@@ -495,7 +556,7 @@
                             <span class="text-[9px] font-mono bg-black/30 text-brand-cream px-2 py-0.5">Tailwind CSS</span>
                             <span class="text-[9px] font-mono bg-black/30 text-brand-cream px-2 py-0.5">Web Speech API</span>
                         </div>
-                        <a href="https://github.com/rouxhana/aapthozhi" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-between py-2 px-3 bg-brand-paper text-brand-green font-heading text-xs font-bold uppercase tracking-wider hover:bg-brand-bordo hover:text-brand-cream transition-colors">
+                        <a href="https://github.com/rouxhana/aapthozhi" target="_blank" rel="noopener noreferrer" class="w-full min-h-[44px] flex items-center justify-between py-2.5 px-3 bg-brand-paper text-brand-green font-heading text-xs font-bold uppercase tracking-wider hover:bg-brand-bordo hover:text-brand-cream transition-colors">
                             <span>View Repository</span>
                             <span>↗</span>
                         </a>
@@ -503,7 +564,7 @@
                 </div>
 
                 <!-- Project 2 (AgriHelp - Warm Cream Background with Bordo Accents) -->
-                <div class="reveal-on-scroll delay-[200ms] group relative bg-brand-cream text-brand-black p-6 flex flex-col justify-between border-b md:border-b-0 md:border-r border-brand-black/15 hover:bg-brand-sand transition duration-300 min-h-[380px]">
+                <div class="reveal-on-scroll delay-[200ms] group relative bg-brand-cream text-brand-black p-5 sm:p-6 lg:p-7 flex flex-col justify-between border-b md:border-b-0 lg:border-r border-brand-black/15 hover:bg-brand-sand transition duration-300 min-h-[360px] sm:min-h-[380px]">
                     <div>
                         <div class="flex justify-between items-start mb-4">
                             <span class="text-[9px] font-mono font-bold text-brand-cream bg-brand-green px-2.5 py-0.5 uppercase tracking-wider">
@@ -512,7 +573,7 @@
                             <div class="w-3 h-3 rounded-full bg-brand-bordo"></div>
                         </div>
 
-                        <h3 class="font-display font-bold text-2xl text-brand-bordo mb-2">
+                        <h3 class="font-display font-bold text-xl sm:text-2xl text-brand-bordo mb-2">
                             AgriHelp (Agri-Guide-Mini)
                         </h3>
                         <p class="text-xs text-brand-black/85 font-body leading-relaxed mb-4">
@@ -527,7 +588,7 @@
                             <span class="text-[9px] font-mono bg-brand-bordo/10 text-brand-bordo px-2 py-0.5">AI Assistant</span>
                             <span class="text-[9px] font-mono bg-brand-bordo/10 text-brand-bordo px-2 py-0.5">UX Research</span>
                         </div>
-                        <a href="https://github.com/rouxhana/Agri-Guide-Mini" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-between py-2 px-3 bg-brand-bordo text-brand-cream font-heading text-xs font-bold uppercase tracking-wider hover:bg-brand-black transition-colors">
+                        <a href="https://github.com/rouxhana/Agri-Guide-Mini" target="_blank" rel="noopener noreferrer" class="w-full min-h-[44px] flex items-center justify-between py-2.5 px-3 bg-brand-bordo text-brand-cream font-heading text-xs font-bold uppercase tracking-wider hover:bg-brand-black transition-colors">
                             <span>View Repository</span>
                             <span>↗</span>
                         </a>
@@ -535,7 +596,7 @@
                 </div>
 
                 <!-- Project 3 (Portfolio - Bordo) -->
-                <div class="reveal-on-scroll delay-[300ms] group relative bg-brand-bordo text-brand-cream p-6 flex flex-col justify-between hover:brightness-105 transition duration-300 min-h-[380px]">
+                <div class="reveal-on-scroll delay-[300ms] group relative bg-brand-bordo text-brand-cream p-5 sm:p-6 lg:p-7 flex flex-col justify-between md:col-span-2 lg:col-span-1 border-t md:border-t-0 border-brand-black/15 hover:brightness-105 transition duration-300 min-h-[360px] sm:min-h-[380px]">
                     <div>
                         <div class="flex justify-between items-start mb-4">
                             <span class="text-[9px] font-mono font-bold text-brand-cream bg-brand-green px-2.5 py-0.5 uppercase tracking-wider">
@@ -544,7 +605,7 @@
                             <div class="w-3 h-3 rounded-full bg-brand-cream"></div>
                         </div>
 
-                        <h3 class="font-display font-bold text-2xl text-brand-cream mb-2">
+                        <h3 class="font-display font-bold text-xl sm:text-2xl text-brand-cream mb-2">
                             Product Portfolio &amp; Casebook
                         </h3>
                         <p class="text-xs text-brand-cream/85 font-body leading-relaxed mb-4">
@@ -559,7 +620,7 @@
                             <span class="text-[9px] font-mono bg-black/30 text-brand-cream px-2 py-0.5">Tailwind</span>
                             <span class="text-[9px] font-mono bg-black/30 text-brand-cream px-2 py-0.5">Zine Layout</span>
                         </div>
-                        <a href="https://github.com/rouxhana/Portfolio" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-between py-2 px-3 bg-brand-paper text-brand-bordo font-heading text-xs font-bold uppercase tracking-wider hover:bg-brand-green hover:text-brand-cream transition-colors">
+                        <a href="https://github.com/rouxhana/Portfolio" target="_blank" rel="noopener noreferrer" class="w-full min-h-[44px] flex items-center justify-between py-2.5 px-3 bg-brand-paper text-brand-bordo font-heading text-xs font-bold uppercase tracking-wider hover:bg-brand-green hover:text-brand-cream transition-colors">
                             <span>View Repository</span>
                             <span>↗</span>
                         </a>
@@ -570,8 +631,8 @@
 
             <!-- Bottom GitHub Repositories Link -->
             <div class="mt-8 text-center px-4">
-                <a href="https://github.com/rouxhana?tab=repositories" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 border-2 border-brand-bordo text-brand-bordo font-heading font-bold text-xs uppercase tracking-widest hover:bg-brand-bordo hover:text-brand-cream transition-all shadow-[4px_4px_0px_#0F3D3A]">
-                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                <a href="https://github.com/rouxhana?tab=repositories" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 sm:px-6 py-3 border-2 border-brand-bordo text-brand-bordo font-heading font-bold text-xs uppercase tracking-widest hover:bg-brand-bordo hover:text-brand-cream transition-all shadow-[4px_4px_0px_#0F3D3A] min-h-[44px]">
+                    <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                     <span>Explore All Repositories on GitHub</span>
                 </a>
             </div>
@@ -583,21 +644,21 @@
         </section>
 
         <!-- LEADERSHIP & EXPERIENCE SECTION -->
-        <section id="leadership" class="bg-brand-canvas py-14 px-6 md:px-12 border-t-2 border-brand-green">
+        <section id="leadership" class="bg-brand-canvas py-10 sm:py-14 px-4 sm:px-6 md:px-12 border-t-2 border-brand-green">
             <div class="max-w-2xl mx-auto">
-                <div class="text-center mb-10">
+                <div class="text-center mb-8 sm:mb-10">
                     <span class="font-mono text-xs font-bold text-brand-green uppercase tracking-widest">03 // Track Record</span>
-                    <h2 class="font-display font-black text-3xl md:text-4xl text-brand-bordo uppercase tracking-tight mt-1">
+                    <h2 class="font-display font-black text-2xl sm:text-3xl md:text-4xl text-brand-bordo uppercase tracking-tight mt-1">
                         Leadership &amp; Certifications
                     </h2>
                 </div>
 
-                <div class="space-y-6">
+                <div class="space-y-4 sm:space-y-6">
                     <!-- Item 1 -->
-                    <div class="reveal-on-scroll bg-brand-paper p-6 border-l-4 border-brand-green shadow-sm hover:translate-x-1 transition-transform">
+                    <div class="reveal-on-scroll bg-brand-paper p-4 sm:p-6 border-l-4 border-brand-green shadow-xs hover:translate-x-1 transition-transform">
                         <div class="flex justify-between items-start flex-wrap gap-2">
-                            <h3 class="font-heading font-bold text-lg text-brand-green">Learning Vertical Chair</h3>
-                            <span class="font-mono text-[10px] bg-brand-green text-brand-cream px-2 py-0.5 rounded-sm uppercase">Student Leadership</span>
+                            <h3 class="font-heading font-bold text-base sm:text-lg text-brand-green">Learning Vertical Chair</h3>
+                            <span class="font-mono text-[9px] sm:text-[10px] bg-brand-green text-brand-cream px-2 py-0.5 rounded-xs uppercase">Student Leadership</span>
                         </div>
                         <p class="text-xs text-brand-black/80 font-body leading-relaxed mt-2">
                             Elected to head student technical learning initiatives across the department. Designed practical workshop curriculums, curated peer learning circles, and broke down complex technologies into accessible frameworks.
@@ -605,10 +666,10 @@
                     </div>
 
                     <!-- Item 2 -->
-                    <div class="reveal-on-scroll bg-brand-paper p-6 border-l-4 border-brand-bordo shadow-sm hover:translate-x-1 transition-transform">
+                    <div class="reveal-on-scroll bg-brand-paper p-4 sm:p-6 border-l-4 border-brand-bordo shadow-xs hover:translate-x-1 transition-transform">
                         <div class="flex justify-between items-start flex-wrap gap-2">
-                            <h3 class="font-heading font-bold text-lg text-brand-bordo">Project &amp; Event Coordinator</h3>
-                            <span class="font-mono text-[10px] bg-brand-bordo text-brand-cream px-2 py-0.5 rounded-sm uppercase">Academic Initiatives</span>
+                            <h3 class="font-heading font-bold text-base sm:text-lg text-brand-bordo">Project &amp; Event Coordinator</h3>
+                            <span class="font-mono text-[9px] sm:text-[10px] bg-brand-bordo text-brand-cream px-2 py-0.5 rounded-xs uppercase">Academic Initiatives</span>
                         </div>
                         <p class="text-xs text-brand-black/80 font-body leading-relaxed mt-2">
                             Led undergraduate teams through full project lifecycles from ideation and sprint division to final delivery. Coordinated department technical symposiums, hackathon participation, and inter-college team competitions.
@@ -616,10 +677,10 @@
                     </div>
 
                     <!-- Item 3 -->
-                    <div class="reveal-on-scroll bg-brand-paper p-6 border-l-4 border-brand-terracotta shadow-sm hover:translate-x-1 transition-transform">
+                    <div class="reveal-on-scroll bg-brand-paper p-4 sm:p-6 border-l-4 border-brand-terracotta shadow-xs hover:translate-x-1 transition-transform">
                         <div class="flex justify-between items-start flex-wrap gap-2">
-                            <h3 class="font-heading font-bold text-lg text-brand-black">AWS Cloud Basics Course</h3>
-                            <span class="font-mono text-[10px] bg-brand-terracotta text-brand-cream px-2 py-0.5 rounded-sm uppercase">Cloud Foundations</span>
+                            <h3 class="font-heading font-bold text-base sm:text-lg text-brand-black">AWS Cloud Basics Course</h3>
+                            <span class="font-mono text-[9px] sm:text-[10px] bg-brand-terracotta text-brand-cream px-2 py-0.5 rounded-xs uppercase">Cloud Foundations</span>
                         </div>
                         <p class="text-xs text-brand-black/80 font-body leading-relaxed mt-2">
                             Completed college-accredited cloud computing curriculum covering AWS core compute (EC2), cloud storage (S3), identity management, and serverless architectures.
@@ -627,10 +688,10 @@
                     </div>
 
                     <!-- Item 4 -->
-                    <div class="reveal-on-scroll bg-brand-paper p-6 border-l-4 border-brand-black shadow-sm hover:translate-x-1 transition-transform">
+                    <div class="reveal-on-scroll bg-brand-paper p-4 sm:p-6 border-l-4 border-brand-black shadow-xs hover:translate-x-1 transition-transform">
                         <div class="flex justify-between items-start flex-wrap gap-2">
-                            <h3 class="font-heading font-bold text-lg text-brand-black">Professional Typewriting Certification</h3>
-                            <span class="font-mono text-[10px] bg-brand-black text-brand-cream px-2 py-0.5 rounded-sm uppercase">Certified</span>
+                            <h3 class="font-heading font-bold text-base sm:text-lg text-brand-black">Professional Typewriting Certification</h3>
+                            <span class="font-mono text-[9px] sm:text-[10px] bg-brand-black text-brand-cream px-2 py-0.5 rounded-xs uppercase">Certified</span>
                         </div>
                         <p class="text-xs text-brand-black/80 font-body leading-relaxed mt-2">
                             Achieved formal certification in professional high-speed typewriting, supporting rapid document drafting, PRD authoring, and crisp team communication.
@@ -643,11 +704,11 @@
     </main>
 
     <!-- FOOTER SECTION (BORDO & CREAM) -->
-    <footer id="contact" class="bg-brand-bordo text-brand-cream pt-14 pb-10 px-6 md:px-12 relative z-0 border-t-2 border-brand-black">
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-10">
+    <footer id="contact" class="bg-brand-bordo text-brand-cream pt-12 sm:pt-14 pb-10 px-4 sm:px-6 md:px-12 relative z-0 border-t-2 border-brand-black">
+        <div class="flex flex-col md:flex-row justify-between items-center md:items-end gap-8 md:gap-10 text-center md:text-left">
             
             <!-- Left Info -->
-            <div class="text-[11px] font-heading font-bold uppercase tracking-widest space-y-2 opacity-90 reveal-on-scroll">
+            <div class="text-[11px] font-heading font-bold uppercase tracking-widest space-y-2 opacity-90 reveal-on-scroll flex flex-col items-center md:items-start">
                 <div class="text-brand-cream font-mono text-[10px] bg-brand-black/40 px-2 py-0.5 inline-block">OPEN FOR APM / PM ROLES</div>
                 <div class="text-brand-cream/80 pt-2">Full-Time &amp; Internship Opportunities</div>
                 <div class="text-brand-cream/80">Class of 2027 // BTech IT</div>
@@ -658,7 +719,7 @@
             </div>
 
             <!-- Center Logo Stamp & QR -->
-            <div class="mx-auto mb-6 md:mb-0 reveal-on-scroll delay-100 flex flex-col items-center">
+            <div class="mx-auto my-2 md:my-0 reveal-on-scroll delay-100 flex flex-col items-center">
                 <div class="w-32 h-14 border-2 border-brand-cream/40 flex items-center justify-center hover:border-brand-cream hover:bg-white/5 transition-all cursor-default">
                     <div class="w-24 h-7 border border-brand-cream/40 flex items-center justify-center transform rotate-180">
                          <span class="font-display font-black text-sm tracking-widest text-brand-cream">RF.</span>
@@ -666,45 +727,45 @@
                 </div>
                 
                 <!-- QR Code Stamp -->
-                <div class="mt-4 p-2 bg-brand-cream border-2 border-brand-black shadow-md flex flex-col items-center">
+                <div class="mt-4 p-2.5 bg-brand-cream border-2 border-brand-black shadow-md flex flex-col items-center">
                     <img src="images/portfolio_qr_bordo.png" alt="Scan to open portfolio on mobile" class="w-24 h-24 object-contain">
                     <div class="mt-1.5 flex items-center justify-between w-full text-[9px] font-mono font-bold text-brand-black gap-2">
                         <span>SCAN ON MOBILE</span>
-                        <a href="images/portfolio_qr_classic.png" download="Rouxhana_Portfolio_QR.png" title="Download for Resume" class="text-brand-bordo hover:underline">PNG ↓</a>
+                        <a href="images/portfolio_qr_classic.png" download="Rouxhana_Portfolio_QR.png" title="Download for Resume" class="text-brand-bordo hover:underline p-1">PNG ↓</a>
                     </div>
                 </div>
                 <div class="font-mono text-[9px] uppercase tracking-widest text-brand-cream/60 mt-2">ROUXHANA FIRTHOUS</div>
             </div>
 
             <!-- Right Links -->
-            <div class="flex flex-col items-start md:items-end gap-2 reveal-on-scroll delay-200">
-                <div class="flex gap-4 text-[11px] font-heading font-bold uppercase tracking-widest text-brand-cream/90">
-                    <a href="#about" class="hover:text-brand-cream transition">About</a>
-                    <a href="#services" class="hover:text-brand-cream transition">Skills</a>
-                    <a href="#projects" class="hover:text-brand-cream transition">Projects</a>
+            <div class="flex flex-col items-center md:items-end gap-3 reveal-on-scroll delay-200">
+                <div class="flex flex-wrap justify-center md:justify-end gap-4 text-[11px] font-heading font-bold uppercase tracking-widest text-brand-cream/90">
+                    <a href="#about" class="hover:text-brand-cream transition py-1">About</a>
+                    <a href="#services" class="hover:text-brand-cream transition py-1">Skills</a>
+                    <a href="#projects" class="hover:text-brand-cream transition py-1">Projects</a>
                 </div>
                 <div class="flex gap-4 text-[11px] font-heading font-bold uppercase tracking-widest text-brand-cream/90">
-                    <a href="https://github.com/rouxhana" target="_blank" rel="noopener noreferrer" class="hover:text-brand-cream transition">GitHub ↗</a>
-                    <a href="https://www.linkedin.com/in/rouxhana-firthous-9197a0301" target="_blank" rel="noopener noreferrer" class="hover:text-brand-cream transition">LinkedIn ↗</a>
+                    <a href="https://github.com/rouxhana" target="_blank" rel="noopener noreferrer" class="hover:text-brand-cream transition py-1">GitHub ↗</a>
+                    <a href="https://www.linkedin.com/in/rouxhana-firthous-9197a0301" target="_blank" rel="noopener noreferrer" class="hover:text-brand-cream transition py-1">LinkedIn ↗</a>
                 </div>
                 
-                <div class="flex gap-3 mt-4">
-                    <a href="https://www.linkedin.com/in/rouxhana-firthous-9197a0301" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="w-7 h-7 border border-brand-cream rotate-45 flex items-center justify-center hover:bg-brand-cream hover:text-brand-bordo transition cursor-pointer group shadow-sm">
+                <div class="flex gap-3 mt-3">
+                    <a href="https://www.linkedin.com/in/rouxhana-firthous-9197a0301" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="w-9 h-9 sm:w-8 sm:h-8 border border-brand-cream rotate-45 flex items-center justify-center hover:bg-brand-cream hover:text-brand-bordo transition cursor-pointer group shadow-sm">
                         <span class="-rotate-45 font-bold font-mono text-[10px] group-hover:rotate-0 transition-transform">in</span>
                     </a>
-                    <a href="https://github.com/rouxhana" target="_blank" rel="noopener noreferrer" title="GitHub" class="w-7 h-7 border border-brand-cream rotate-45 flex items-center justify-center hover:bg-brand-cream hover:text-brand-bordo transition cursor-pointer group shadow-sm">
+                    <a href="https://github.com/rouxhana" target="_blank" rel="noopener noreferrer" title="GitHub" class="w-9 h-9 sm:w-8 sm:h-8 border border-brand-cream rotate-45 flex items-center justify-center hover:bg-brand-cream hover:text-brand-bordo transition cursor-pointer group shadow-sm">
                         <span class="-rotate-45 font-bold font-mono text-[10px] group-hover:rotate-0 transition-transform">gh</span>
                     </a>
-                    <a href="mailto:rouxhana9894@gmail.com" class="w-7 h-7 border border-brand-cream rotate-45 flex items-center justify-center hover:bg-brand-cream hover:text-brand-bordo transition cursor-pointer group shadow-sm">
+                    <a href="mailto:rouxhana9894@gmail.com" class="w-9 h-9 sm:w-8 sm:h-8 border border-brand-cream rotate-45 flex items-center justify-center hover:bg-brand-cream hover:text-brand-bordo transition cursor-pointer group shadow-sm">
                         <span class="-rotate-45 font-bold font-mono text-[10px] group-hover:rotate-0 transition-transform">@</span>
                     </a>
                 </div>
             </div>
         </div>
 
-        <div class="border-t border-brand-cream/20 mt-10 pt-4 flex flex-col sm:flex-row justify-between items-center text-[10px] font-mono text-brand-cream/60">
+        <div class="border-t border-brand-cream/20 mt-10 pt-4 flex flex-col sm:flex-row justify-between items-center text-[10px] font-mono text-brand-cream/60 gap-2 text-center sm:text-left">
             <p>&copy; 2024–2027 Rouxhana Firthous. Built for Product Leadership.</p>
-            <p class="mt-1 sm:mt-0">Designed in Bordo, Pine Green &amp; Cream.</p>
+            <p>Designed in Bordo, Pine Green &amp; Cream.</p>
         </div>
     </footer>
 
@@ -712,6 +773,7 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+        // Scroll animations
         const elements = document.querySelectorAll('.reveal-on-scroll');
         
         const checkVisibility = () => {
@@ -731,6 +793,39 @@
         setTimeout(checkVisibility, 150);
         setTimeout(checkVisibility, 600);
         setTimeout(checkVisibility, 1500);
+
+        // Mobile drawer navigation
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+        const iconOpen = document.getElementById('menu-icon-open');
+        const iconClose = document.getElementById('menu-icon-close');
+
+        if (mobileMenuBtn && mobileDrawer) {
+            mobileMenuBtn.addEventListener('click', () => {
+                const isOpen = mobileDrawer.classList.contains('open');
+                if (isOpen) {
+                    mobileDrawer.classList.remove('open');
+                    mobileDrawer.classList.add('closed');
+                    iconOpen.classList.remove('hidden');
+                    iconClose.classList.add('hidden');
+                } else {
+                    mobileDrawer.classList.remove('closed');
+                    mobileDrawer.classList.add('open');
+                    iconOpen.classList.add('hidden');
+                    iconClose.classList.remove('hidden');
+                }
+            });
+
+            // Close mobile drawer when any link is clicked
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileDrawer.classList.remove('open');
+                    mobileDrawer.classList.add('closed');
+                    iconOpen.classList.remove('hidden');
+                    iconClose.classList.add('hidden');
+                });
+            });
+        }
 
         // Smooth scroll for internal links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
