@@ -20,6 +20,7 @@ An editorial, zine-inspired personal portfolio designed for **Rouxhana Firthous*
   - [**AapThozhi**](https://github.com/rouxhana/aapthozhi): Voice-first, icon-first multilingual assistance companion helping women access government welfare schemes across 14 languages.
   - [**AgriHelp (Agri-Guide-Mini)**](https://github.com/rouxhana/Agri-Guide-Mini): Accessible farming guidance web app for smallholder farmers in Tamil Nadu (<1 acre).
   - [**Portfolio & Casebook**](https://github.com/rouxhana/Portfolio): This live editorial showcase.
+- **Resume**: [Interactive Resume](https://rouxhana.github.io/Portfolio/resume.html) | [Download PDF](https://rouxhana.github.io/Portfolio/Rouxhana_Firthous_Resume.pdf)
 - **Leadership & Track Record**: Highlighting role as Learning Vertical Chair, academic event coordination, and certifications.
 
 ---
@@ -52,7 +53,7 @@ Open [http://localhost:8000](http://localhost:8000) in your browser.
 
 ## 📬 Contact
 
-- **Email**: [rouxhana9894@gmail.com](mailto:rouxhana9894@gmail.com)
+- **Email**: [rouxhana05@gmail.com](mailto:rouxhana05@gmail.com)
 - **GitHub**: [@rouxhana](https://github.com/rouxhana)
 - **LinkedIn**: [Rouxhana Firthous](https://www.linkedin.com/in/rouxhana-firthous-9197a0301)
 
