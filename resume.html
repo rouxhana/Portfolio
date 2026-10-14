@@ -363,10 +363,10 @@
 
     @media (max-width: 640px) {
       body {
-        padding: 12px 6px 40px 6px;
+        padding: 10px 6px 36px 6px;
       }
       .resume-page {
-        padding: 24px 20px;
+        padding: 22px 16px;
       }
       .candidate-name {
         font-size: 22px;
@@ -383,11 +383,27 @@
       .action-bar {
         border-radius: 12px;
         flex-direction: column;
-        gap: 10px;
+        gap: 8px;
         align-items: stretch;
+        padding: 8px 12px;
       }
       .action-bar-right {
-        justify-content: space-between;
+        display: flex;
+        gap: 8px;
+        justify-content: stretch;
+      }
+      .action-bar-right .btn {
+        flex: 1;
+        justify-content: center;
+        padding: 7px 8px;
+        font-size: 11px;
+      }
+      .contact-grid {
+        gap: 8px 14px;
+        font-size: 11.5px;
+      }
+      .contact-item {
+        word-break: break-word;
       }
     }
 
